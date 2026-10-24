@@ -1,0 +1,12 @@
+id,category,local_file,title,source_url,document_page_url,downloaded_at
+1,regulation,regulations/01_popatkus.docx,ПОПАТКУС,https://www.hse.ru/data/xf/423/788/1956/1Положение.docx,https://www.hse.ru/docs/1026832917.html,2026-10-03
+2,regulation,regulations/02_academic_leave.docx,Академический отпуск,https://www.hse.ru/data/xf/170/569/0152/Порядок.docx,https://www.hse.ru/docs/1083049856.html,2026-10-03
+3,regulation,regulations/03_plagiarism_and_ai.docx,Плагиат и генеративные модели,https://www.hse.ru/data/xf/286/845/2123/6.18-01_160426-6%20Итоговый%20документ.docx,https://www.hse.ru/docs/922831988.html,2026-10-03
+4,regulation,regulations/04_reinstatement.docx,Восстановление после отчисления,https://www.hse.ru/data/xf/190/998/0195/Порядок.docx,https://www.hse.ru/docs/1111012156.html,2026-10-03
+5,regulation,regulations/05_state_final_attestation.docx,Государственная итоговая аттестация,https://www.hse.ru/data/xf/446/948/0195/Положение%20о%20ГИА.docx,https://www.hse.ru/docs/1111223628.html,2026-10-03
+6,regulation,regulations/06_class_schedule_rules.docx,Режим занятий,https://www.hse.ru/data/xf/151/848/2123/6.18-01_080524-15%20Приложение%201.docx,https://www.hse.ru/docs/922835717.html,2026-10-03
+7,regulation,regulations/07_expulsion.docx,Отчисление,https://www.hse.ru/data/xf/375/840/2096/6.18-01_130224-5%20Приложение%201.docx,https://www.hse.ru/docs/896351333.html,2026-10-03
+8,regulation,regulations/08_transfer_rules.docx,Перевод студентов,https://www.hse.ru/data/xf/369/945/0195/1Правила%20перевода%20студентов%20программ%20бака..та,%20специалитета,%20магистратуры.docx,https://www.hse.ru/docs/1111220555.html,2026-10-03
+9,regulation,regulations/09_internal_student_rules.docx,Правила внутреннего распорядка,https://www.hse.ru/data/xf/414/079/1119/Правила%20(с%20изм.%202026).docx,https://www.hse.ru/docs/187025700.html,2026-10-03
+10,regulation,regulations/10_student_rating_rules.docx,Сравнение результатов обучения,https://www.hse.ru/data/xf/674/467/2007/3Положение.docx,https://www.hse.ru/docs/1043432520.html,2026-10-03
+11,regulation,regulations/11_coursework_and_thesis_formatting.docx,Оформление курсовых и ВКР,https://www.hse.ru/data/2024/01/18/1420433269/Приложение%208.docx,https://www.hse.ru/studyspravka/loc/,2026-10-03
