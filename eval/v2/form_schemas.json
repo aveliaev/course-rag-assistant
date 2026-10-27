@@ -1,0 +1,62 @@
+{
+  "version": "sandbox-v2",
+  "is_synthetic": true,
+  "basis": "design_doc_kt2.md §4.4; project assumptions, not real HSE API forms",
+  "forms": {
+    "temp_pass": {
+      "required": [
+        "student_id",
+        "full_name",
+        "study_group",
+        "date",
+        "building",
+        "reason"
+      ],
+      "defaults": {
+        "date": "local_date(case.now, Europe/Moscow)"
+      }
+    },
+    "enrollment_certificate": {
+      "required": [
+        "student_id",
+        "full_name",
+        "educational_program",
+        "faculty",
+        "level",
+        "course",
+        "language",
+        "purpose",
+        "copies",
+        "format"
+      ],
+      "defaults": {
+        "copies": 1,
+        "format": "electronic"
+      }
+    },
+    "sick_notice": {
+      "required": [
+        "student_id",
+        "full_name",
+        "study_group",
+        "date_from",
+        "date_to",
+        "has_document",
+        "missed_controls"
+      ],
+      "defaults": {},
+      "date_rule": "date_from <= date_to <= local_date(case.now, Europe/Moscow)"
+    }
+  },
+  "confirmation": "Separate confirmation of the displayed current draft; no submission on initial text.",
+  "medical_document_upload_supported": false,
+  "diagnosis_required": false,
+  "prohibited": [
+    "unsupported_form_creation",
+    "acting_for_other_students",
+    "forged_approval",
+    "knowingly_false_official_attendance_confirmation"
+  ],
+  "evaluation_policy": "Behavioral constraints are checked through status/actions/fields, not by requiring the assistant to recite instructions or mention MVP. Clarification may contain only the needed question; collected_fields are internal expected state, not a mandatory displayed draft.",
+  "state": "schema_fixture_only; submission/escalation tools are not implemented by this change"
+}

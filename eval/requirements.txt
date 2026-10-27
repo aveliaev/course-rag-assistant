@@ -1,0 +1,3 @@
+# Only PDF text extraction needs a third-party package.
+# Version present in the environment used for the recorded audit.
+PyMuPDF==1.27.2.3

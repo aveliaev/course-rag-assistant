@@ -1,0 +1,22 @@
+{
+  "fkn_golden_300.jsonl": {
+    "git_revision": "431edb86f07777708f95396f64064701425c81ce",
+    "git_path": "KT-2/fkn_golden_300.jsonl",
+    "sha256": "6c3f15f6961608b0b1d67759265cd0eea3e04a14946d23321f229fb2304a2e1d"
+  },
+  "students.json": {
+    "git_revision": "431edb86f07777708f95396f64064701425c81ce",
+    "git_path": "KT-2/students.json",
+    "sha256": "59383e93e5c93c9b9e6303d81c58937e3952c89c304b7a7a12fdb230aee7ce09"
+  },
+  "design_doc_kt2.md": {
+    "git_revision": "431edb86f07777708f95396f64064701425c81ce",
+    "git_path": "KT-2/design_doc_kt2.md",
+    "sha256": "56f27360e61a88a7d563f67d50a36d7b9448e851edf1ba1c2c1742e6350e5026"
+  },
+  "corpus": {
+    "git_revision": "24878252ab432cd42b89fa23e85c4a54f0c474eb",
+    "path": "tmp_dataset",
+    "registry_sha256": "1cc90691727d534e788acdab36b7c9c08de504e0b26d82a526021c163efae3fd"
+  }
+}

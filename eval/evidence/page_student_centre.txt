@@ -1,0 +1,377 @@
+1: ## **Центр сервиса «Студент» -**
+2: 
+3: это многофункциональный центр НИУ ВШЭ, который предоставляет услуги для студентов и выпускников. Документы, касающиеся обучения, можно оформить и получить, подав заявку через наш электронный сервис, который работает в режиме «единого окна».
+4: 
+5: Мы всегда готовы помочь вам с ответами на любые вопросы, которые возникают у вас во время обучения в Вышке. А еще у нас в центре очень красиво :)
+6: 
+7: Ждем вас!
+8: 
+9: ## Как заказать и получить документы
+10: 
+11: 1.
+12: 
+13: Ознакомьтесь с перечнем услуг центра
+14: 
+15: 2.
+16: 
+17: Подайте заявку в электронном сервисе
+18: 
+19: 3.
+20: 
+21: Выберите формат получения документов
+22: 
+23: 4.
+24: 
+25: Проследите статус заявки по ссылке
+26: 
+27: 5.
+28: 
+29: Получите заказанные документы
+30: 
+31: [Электронный сервис центра](https://lk.hse.ru/student-services?section=documents&subsection=certificates)
+32: 
+33: [Сервисы для менеджера образовательной программы](https://pmo.hse.ru/servicedesk/customer/portal/93/group/223)
+34: 
+35: ## Сервисы для студентов
+36: 
+37: ### Выдача документов
+38: 
+39: - готовим и выдаем справки различного вида на русском и английском языках (справка о подтверждении факта обучения в НИУ ВШЭ: [на русском](https://lk.hse.ru/student-service/student-service-first?components=14605) / [на английском](https://lk.hse.ru/student-service/student-service-first?components=16522), [транскрипты](https://lk.hse.ru/student-service/student-service-first?components=14622), [выписки из электронных зачетных книжек](https://lk.hse.ru/student-service/student-service-first?components=14623), [справки - вызов](https://lk.hse.ru/student-service/student-service-first?components=14624), [справки о периоде обучения (при переводе)](https://lk.hse.ru/student-service/student-service-first?components=19800), [справка об обучении (при отчислении)](https://lk.hse.ru/student-service/student-service-first?components=19801), [справки об уровне владения английским языком](https://lk.hse.ru/student-service/student-service-first?components=14626));
+40: 
+41: - готовим заверенные [выписки из приказов](https://lk.hse.ru/student-service/student-service-ext?components=16711);
+42: 
+43: - готовим заверенные копии документов НИУ ВШЭ ([Устав НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-first?components=14634)) и предоставляем [информацию о лицензии и аккредитации НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-first?components=14633);
+44: 
+45: - выдаем совместно с управлением социальной сферы [справки об отсутствии контактов с инфекционными заболевшими](https://lk.hse.ru/student-service/student-service-first?components=23800).
+46: 
+47: ### Обработка заявлений
+48: 
+49: - верифицируем результаты сертификационных экзаменов по английскому языку и [перезачитываем их результаты](https://lk.hse.ru/student-service/student-service-first?components=14629);
+50: 
+51: - принимаем заявки на[внесение изменений в персональные данные](https://lk.hse.ru/student-service/student-service-first?components=14630) студента;
+52: 
+53: - проверяем [уважительную причину неявки на экзамен/пересдачу](http://lk.hse.ru/student-service/student-service-first?components=21201);
+54: 
+55: - рассматриваем [повторную сдачу при положительной оценке по промежуточной аттестации](https://lk.hse.ru/student-service/student-service-first?components=21315) по болезни или иной уважительной причине;
+56: 
+57: - обрабатываем [заявки по переносу дат элементов контроля и дат пересдач](https://lk.hse.ru/student-service/student-service-first?components=21209);
+58: 
+59: - помогаем с [предоставлением специальных условий для обучения студент с инвалидностью и ОВЗ](https://lk.hse.ru/student-service/student-service-first?components=20901);
+60: 
+61: - принимаем[заявки о принадлежности к отдельной категории](https://lk.hse.ru/student-service/student-service-third?components=25300) по линии СВО;
+62: 
+63: - принимаем заявки на [перенос даты пересдачи комиссии по дисциплине и её повторное изучение](https://lk.hse.ru/student-service/student-service-first?components=21425);
+64: 
+65: - перезачитываем [результаты по русскому языку как иностранному](https://lk.hse.ru/student-service/student-service-first?components=23210);
+66: 
+67: - подключаем [к изучению русского языка как иностранного](https://lk.hse.ru/student-service/student-service-second?components=24331);
+68: 
+69: - принимаем заявления на предоставление [академического отпуска](https://lk.hse.ru/student-service/student-service-second?components=24328), [отпуска по беременности и родам и уходу за ребенком](https://lk.hse.ru/student-service/student-service-second?components=24330);
+70: 
+71: - передаем менеджеру ОП [заявления о досрочном выходе](https://lk.hse.ru/student-service/student-service-second?components=24329) из академического отпуска;
+72: 
+73: - принимаем заявления на [восстановление в НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-fourth?components=24800);
+74: 
+75: - обрабатываем [ошибки в электронных студенческих билетах](https://lk.hse.ru/student-service/student-service-third?components=25111) на Госуслугах;
+76: 
+77: - готовим и выдаем [дубликаты студенческих билетов-пропусков](https://lk.hse.ru/student-service/student-service-first?components=14631);
+78: 
+79: - собираем заявления на[отчисление из НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-third?components=25100);
+80: 
+81: - работаем над автоматизацией других заявлений, чтобы в скором времени принимать их в электронном формате.
+82: 
+83: ### Обратная связь
+84: 
+85: - консультируем студентов на русском и английском языках, онлайн и офлайн;
+86: 
+87: - подсказываем, как перевестись [на другую образовательную программу](https://www.hse.ru/studyspravka/programme_change) и [на бесплатное обучение](https://www.hse.ru/studyspravka/perbud);
+88: 
+89: - отвечаем на другие вопросы по организации учебного процесса, если ответ не был найден в [справочнике учебного процесса](https://www.hse.ru/studyspravka/);
+90: 
+91: - отвечаем на запросы государственных органов и юридических лиц о подтверждении обучения студентов.
+92: 
+93: ### Сопровождение массовых кампаний
+94: 
+95: - координируем кампании по [переводу студентов внутри НИУ ВШЭ](https://www.hse.ru/studyspravka/programme_change) и [из других образовательных организаций](https://www.hse.ru/studyspravka/transfer);
+96: 
+97: - координируем кампании по [переводу студентов с платного обучения на бесплатное](https://www.hse.ru/studyspravka/perbud);
+98: 
+99: - передаем сведения о выданных дипломах в [Федеральный реестр документов об образовании](https://obrnadzor.gov.ru/gosudarstvennye-uslugi-i-funkczii/7701537808-gosfunction/formirovanie-i-vedenie-federalnogo-reestra-svedenij-o-dokumentah-ob-obrazovanii-i-ili-o-kvalifikaczii-dokumentah-ob-obuchenii/) (ФИС ФРДО).
+100: 
+101: ## Центр визово-миграционного сопровождения иностранных граждан
+102: 
+103: - ### Продление учебной визы
+104: 
+105: [Подать документы](https://lk.hse.ru/student-service/student-service-first?components=23813)
+106: 
+107: - ### Пакет документов для РВПО
+108: 
+109: [Заказать](https://lk.hse.ru/student-service/student-service-first?components=23302)
+110: 
+111: - ### Ходатайство
+112: 
+113: [Заказать](https://lk.hse.ru/student-service/student-service-first?components=23027)
+114: 
+115: - ### Консультация
+116: 
+117: [Получить](https://lk.hse.ru/student-service/student-service-first?components=23028)
+118: 
+119: [Визово-миграционные сервисы](https://lk.hse.ru/student-services?section=visas&subsection=visa)
+120: 
+121: ## Финансовые справки для студентов
+122: 
+123: - ### Справка о размере стипендии (для субсидий по форме 2)
+124: 
+125: [Заказать здесь](https://lk.hse.ru/student-service/student-service-first?components=24315)
+126: 
+127: - ### Справка об оплате образовательных услуг для представления в налоговый орган (форма ИФНС)
+128: 
+129: [Заказать здесь](https://lk.hse.ru/student-service/student-service-first?components=24316)
+130: 
+131: - ### Справка о размере стипендии
+132: 
+133: [Заказать здесь](https://lk.hse.ru/student-service/student-service-first?components=24317)
+134: 
+135: [Финансовые справки](https://lk.hse.ru/student-services?section=payeducation&subsection=finspravka)
+136: 
+137: [Перевод внутри НИУ ВШЭ](https://www.hse.ru/studyspravka/programme_change)
+138: 
+139: [Перевод в НИУ ВШЭ](https://www.hse.ru/studyspravka/transfer)
+140: 
+141: [Всё об учебном процессе](https://www.hse.ru/studyspravka/)
+142: 
+143: ## Сервисы для выпускников
+144: 
+145: ### Выдача документов*
+146: 
+147: - выдаем [справки выпускникам](https://lk.hse.ru/student-service/student-service-ext?components=14635), подтверждающие факт обучения в университете;
+148: 
+149: - готовим и выдаем [дубликаты дипломов государственного образца](https://lk.hse.ru/student-service/student-service-ext?components=16000);
+150: 
+151: - готовим и выдаем [бумажные копии Приложений к Диплому НИУ ВШЭ (Diploma Supplement)](https://lk.hse.ru/student-service/student-service-ext?components=15205);
+152: 
+153: - предоставляем заверенные копии документов ([государственного образца](https://lk.hse.ru/student-service/student-service-ext?components=15204), [приложений к дипломам на английском языке (Diploma Supplement)](https://lk.hse.ru/student-service/student-service-ext?components=15206), [свидетельства об аккредитации](https://lk.hse.ru/student-service/student-service-ext?components=14633), [устава НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-ext?components=14634)) и[информацию о лицензии НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-ext?components=14633);
+154: 
+155: - готовим и выдаем справки о содержании диплома [гособразца](https://lk.hse.ru/student-service/student-service-ext?components=24000)и [диплома НИУ ВШЭ](https://lk.hse.ru/student-service/student-service-ext?components=24001)на английском языке;
+156: 
+157: - принимаем [заявки на добавление СНИЛС](https://lk.hse.ru/student-service/student-service-ext?components=14642) и выданных дипломов выпускников в [Федеральный реестр документов об образовании](https://obrnadzor.gov.ru/gosudarstvennye-uslugi-i-funkczii/7701537808-gosfunction/formirovanie-i-vedenie-federalnogo-reestra-svedenij-o-dokumentah-ob-obrazovanii-i-ili-o-kvalifikaczii-dokumentah-ob-obuchenii/) (ФИС ФРДО).
+158: 
+159: *для подачи заявки необходимо авторизоваться в Едином личном кабинете. Если у Вас нет аккаунта в ЕЛК, пожалуйста, зарегистрируйтесь по [ссылке](https://lk.hse.ru/registration)
+160: 
+161: ### Взаимодействие с внешними организациями
+162: 
+163: - передаем сведения о выданных дипломах в [Федеральный реестр документов об образовании](https://obrnadzor.gov.ru/gosudarstvennye-uslugi-i-funkczii/7701537808-gosfunction/formirovanie-i-vedenie-federalnogo-reestra-svedenij-o-dokumentah-ob-obrazovanii-i-ili-o-kvalifikaczii-dokumentah-ob-obuchenii/) (ФИС ФРДО).
+164: 
+165: - отвечаем на запросы о подтверждении обучения для [легализации дипломов](https://www.hse.ru/studyspravka/legaldiploma);
+166: 
+167: - отправляем заверенные копии документов во внешние организации (в том числе в [WES](https://www.hse.ru/studyspravka/wes/)).
+168: 
+169: [Подать заявку выпускнику](https://lk.hse.ru/student-services?section=posgraduate&subsection=posgraduate)
+170: 
+171: ###
+172: 
+173: Для подачи заявки необходимо авторизоваться в Едином личном кабинете. Если у Вас нет аккаунта в ЕЛК, пожалуйста, зарегистрируйтесь по [ссылке](https://lk.hse.ru/registration)
+174: 
+175: [Проверить подлинность диплома гос.образца в реестре Рособрнадзора (ФИС ФРДО)](https://obrnadzor.gov.ru/gosudarstvennye-uslugi-i-funkczii/7701537808-gosfunction/formirovanie-i-vedenie-federalnogo-reestra-svedenij-o-dokumentah-ob-obrazovanii-i-ili-o-kvalifikaczii-dokumentah-ob-obuchenii/)
+176: 
+177: ###
+178: 
+179: Проверка подлинности диплома государственного образца осуществляется на сайте Рособрнадзора ([ФИС ФРДО](https://obrnadzor.gov.ru/gosudarstvennye-uslugi-i-funkczii/7701537808-gosfunction/formirovanie-i-vedenie-federalnogo-reestra-svedenij-o-dokumentah-ob-obrazovanii-i-ili-o-kvalifikaczii-dokumentah-ob-obuchenii/)). Дипломы выпускников - граждан РФ 2021 года выпуска и позднее передаются в ФИС ФРДО только при условии предоставления СНИЛС.
+180: 
+181: Выпускники, получившие дипломы в 2021 году и позднее и представившие на момент выпуска данные СНИЛС, могут проверить свой диплом на [портале Госуслуг](https://www.gosuslugi.ru/).
+182: 
+183: В случае, если Вы не нашли свой диплом в [ФИС ФРДО](https://obrnadzor.gov.ru/gosudarstvennye-uslugi-i-funkczii/7701537808-gosfunction/formirovanie-i-vedenie-federalnogo-reestra-svedenij-o-dokumentah-ob-obrazovanii-i-ili-o-kvalifikaczii-dokumentah-ob-obuchenii/), сообщите нам об этом через [ЕЛК](https://lk.hse.ru/student-service/student-service-ext?components=14642), предоставив данные СНИЛС.
+184: 
+185: [Проверить подлинность диплома собственного образца НИУ ВШЭ](https://diplom.hse.ru/)
+186: 
+187: ## Сервисы для внешних пользователей
+188: 
+189: ### Студентам других образовательных организаций
+190: 
+191: - консультируем по вопросам переводов и отвечаем на вопросы о переводе студентов [из других образовательных организаций РФ](https://www.hse.ru/studyspravka/perevodrf) и [зарубежных университетов](https://www.hse.ru/studyspravka/perevodst-inostr).
+192: 
+193: ### Государственным органам и юридическим лицам
+194: 
+195: - отвечаем на официальные запросы государственных органов и юридичесих лиц о подтверждении обучения студентов: запросы [направляются на почту hse@hse.ru](https://www.hse.ru/appeal/) c приложением согласия на обработку персональных данных лица, в отношении которого направляется запрос (для юридических лиц).
+196: 
+197: [Направить запрос (внешним организациям)](https://www.hse.ru/appeal/)
+198: 
+199: ## Наша команда
+200: 
+201: [Гоголева Ирина](https://www.hse.ru/org/persons/563386296)
+202: 
+203: Директор
+204: 
+205: [Хитяева Кристина](https://www.hse.ru/org/persons/308147886)
+206: 
+207: Заместитель директора
+208: 
+209: [Антропова Ольга](https://www.hse.ru/org/persons/163024513)
+210: 
+211: Заместитель директора
+212: 
+213: [Осипова Наталья](https://www.hse.ru/org/persons/6207378)
+214: 
+215: Главный эксперт
+216: 
+217: [Постоев Кайрат](https://www.hse.ru/org/persons/565361445)
+218: 
+219: Главный эксперт
+220: 
+221: [Соловьева Вера](https://www.hse.ru/org/persons/578690712)
+222: 
+223: Менеджер
+224: 
+225: [Ибрагимов Рифат](https://www.hse.ru/org/persons/929933513)
+226: 
+227: Менеджер
+228: 
+229: [Барткова Наталья](https://www.hse.ru/org/persons/852994437)
+230: 
+231: Менеджер
+232: 
+233: [Фаттяхова Алсу](https://www.hse.ru/org/persons/862408309)
+234: 
+235: Менеджер
+236: 
+237: [Дорджиева Светлана](https://www.hse.ru/org/persons/910740628)
+238: 
+239: Менеджер
+240: 
+241: [Стрельцова Ангелина](https://www.hse.ru/org/persons/963493956)
+242: 
+243: Менеджер
+244: 
+245: [Федотова Мария](https://www.hse.ru/org/persons/1028622187)
+246: 
+247: Менеджер
+248: 
+249: [Александрова Мария](https://www.hse.ru/org/persons/1050773154)
+250: 
+251: Менеджер
+252: 
+253: [Хилькевич Елизавета](https://www.hse.ru/org/persons/401658478)
+254: 
+255: Менеджер
+256: 
+257: [Николаева Дарья](https://www.hse.ru/org/persons/1143577390/)
+258: 
+259: Менеджер
+260: 
+261: ## Наши контакты
+262: 
+263: ###
+264: 
+265: **Москва, Покровский бульвар, 11, вход №5**
+266: 
+267: **(со стороны Покровского б-ра справа от входа №1)**
+268: 
+269: **studcentre@hse.ru
+270: 
+271: +7 (495) 628 54 93**
+272: 
+273: **Пн.-Пт. 10:00-19:00**
+274: 
+275: **Пн.-Пт. 10:00-18:00 (визово-миграционный центр)**
+276: 
+277: **[ЦСС В TELEGRAM](https://t.me/+uNYnWOBwlK1hNmQy)**
+278: 
+279: [Иконки MAX — скачать SVG, PNG, размеры и версии для светлой ...]**[ЦСС в МАХ](https://max.ru/id7714030726_gos94)**
+280: 
+281: [3 сентября стартует кампания по выбору дисциплин на первое полугодие 2026/27 учебного года](https://www.hse.ru/our/news/1196655287.html)
+282: 
+283: Задача всех студентов — выбрать дисциплины и расписание учебных групп к ним
+284: 
+285: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+286: 
+287: 2 сентября
+288: 
+289: [Вышка внедряет электронные приложения к дипломам НИУ ВШЭ для выпускников 2025 года](https://www.hse.ru/our/news/1043080770.html)
+290: 
+291: Получить информацию о перечне дисциплин и оценках можно будет с помощью QR-кода
+292: 
+293: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+294: 
+295: 12 мая, 2025 г.
+296: 
+297: [1 апреля центру сервиса «Студент» исполняется два года](https://www.hse.ru/our/news/909599867.html)
+298: 
+299: В честь праздника посетителей ждет беспроигрышная лотерея
+300: 
+301: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+302: 
+303: 29 марта, 2024 г.
+304: 
+305: [Участники СВО и члены их семей смогут учиться в НИУ ВШЭ за счет средств университета](https://www.hse.ru/our/news/837150722.html)
+306: 
+307: Рассказываем, что для этого необходимо
+308: 
+309: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+310: 
+311: 31 мая, 2023 г.
+312: 
+313: [Студенты Вышки поделились отзывами о работе Центра сервиса «Студент»](https://studentcentre.hse.ru/news/829000907.html)
+314: 
+315: 1 апреля Центру сервиса «Студент» исполнился один год. В честь первого дня рождения студенты Вышки поделились своими отзывами о работе центра.
+316: 
+317: [достижения](https://studentcentre.hse.ru/news/tags/achievements/)
+318: 
+319: [студенты](https://studentcentre.hse.ru/news/tags/stud/)
+320: 
+321: [бакалавриат](https://studentcentre.hse.ru/news/tags/bprep/)
+322: 
+323: [магистратура](https://studentcentre.hse.ru/news/tags/mag/)
+324: 
+325: 21 апреля, 2023 г.
+326: 
+327: [Центр сервиса «Студент» объявляет конкурс в честь дня рождения](https://www.hse.ru/our/news/823653303.html)
+328: 
+329: Примите участие до 2 апреля
+330: 
+331: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+332: 
+333: 29 марта, 2023 г.
+334: 
+335: [Студентам доступно получение электронных справок в Центре сервиса «Студент»](https://studentcentre.hse.ru/news/820661763.html)
+336: 
+337: 14 марта 2023 года в Центре сервиса «Студент» была запущена новая услуга по выдаче электронных справок.
+338: 
+339: [Образование](https://studentcentre.hse.ru/news/edu/)
+340: 
+341: [студенты](https://studentcentre.hse.ru/news/tags/stud/)
+342: 
+343: [разъяснение нововведения](https://studentcentre.hse.ru/news/tags/expl/)
+344: 
+345: 14 марта, 2023 г.
+346: 
+347: [Центру сервиса «Студент» исполнилось три месяца](https://www.hse.ru/our/news/686141244.html)
+348: 
+349: Со дня открытия его посетило 1583 студента и выпускника
+350: 
+351: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+352: 
+353: 11 июля, 2022 г.
+354: 
+355: [«Здорово, что у нас появился свой МФЦ, только удобнее и быстрее»](https://www.hse.ru/our/news/595554405.html)
+356: 
+357: Студенты — о новом Центре сервиса «Студент»
+358: 
+359: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+360: 
+361: 22 апреля, 2022 г.
+362: 
+363: [На Покровке открылся центр сервиса «Студент»](https://www.hse.ru/our/news/584547682.html)
+364: 
+365: Здесь студенты и выпускники могут заказать справки и документы, а также задать вопросы по учебному процессу
+366: 
+367: [Вышка для своих](https://studentcentre.hse.ru/news/ou/263117111/)
+368: 
+369: 4 апреля, 2022 г.
+370: 
+371: [Еще новости](https://studentcentre.hse.ru/news/page2.html)
+372: 
+373: ---
+374: 
+375: Источник: [https://studentcentre.hse.ru/](https://studentcentre.hse.ru/)
+376: 
+377: Снимок загружен: 2026-10-03. Перед использованием проверьте актуальность оригинала.

@@ -1,0 +1,47 @@
+{
+  "case_count": 300,
+  "unique_case_ids": 300,
+  "splits": {
+    "test": 244,
+    "dev": 56
+  },
+  "profile_count": 100,
+  "referenced_profiles": 98,
+  "missing_profiles": [],
+  "registry_documents": 1828,
+  "unique_registry_ids": 1828,
+  "missing_corpus_paths": [],
+  "hash_mismatches": [],
+  "referenced_documents": 176,
+  "missing_referenced_ids": [],
+  "extraction_errors": {},
+  "empty_extractions": [],
+  "runtime_fixtures_not_provided": [
+    "course_enrollments",
+    "schedule",
+    "versioned_form_schemas",
+    "submission_and_escalation_stubs",
+    "multi_turn_continuations"
+  ],
+  "field_provenance": {
+    "profile_exact_match": 115,
+    "needs_semantic_or_default_review": 45,
+    "unknown_requires_clarification": 38,
+    "literal_in_input": 14
+  },
+  "candidate_fact_count": 618,
+  "facts_with_literal_match": 99,
+  "case_review_flags": {
+    "author_label_is_not_runtime_status": 83,
+    "branch_specific_rubric_required": 2,
+    "request_type_outside_MVP_requires_policy_decision": 20
+  },
+  "source_review_flags": {
+    "enrollment_fixture_not_provided": 117,
+    "absence_claim_not_a_citable_clause": 18,
+    "not_marked_current": 5,
+    "program_mismatch": 3
+  },
+  "semantic_gold_verified": false,
+  "note": "Integrity, text extraction and literal field matching do not establish semantic ground truth."
+}

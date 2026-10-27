@@ -1,0 +1,128 @@
+1: # Конструирование баз данных
+2: 
+3: 2026/2027
+4: Учебный год
+5: 
+6: RUS
+7: Обучение ведется на русском языке
+8: 
+9: 6
+10: Кредиты
+11: 
+12: Кто читает:[Департамент программной инженерии](https://cs.hse.ru/dse/)
+13: 
+14: Статус:Курс обязательный
+15: Когда читается:2-й курс, 3, 4 модуль
+16: 
+17: #### Преподаватели
+18: 
+19: [
+20: 
+21: Брейман Александр Давидович](https://www.hse.ru/org/persons/22564953)
+22: 
+23: [
+24: 
+25: Тулявко Лев Владимирович](https://www.hse.ru/org/persons/401654001)
+26: 
+27: ### Программа дисциплины
+28: 
+29: [Дополнительные материалы в LMS](https://dp.hse.ru/#/summary?implementationId=16281525935)[Задать вопрос](https://pmo.hse.ru/servicedesk/customer/portal/81/create/3180)
+30: 
+31: #### Аннотация
+32: 
+33: Предлагаемый курс ориентирован на изучение современных методов и средств организации баз данных, моделей данных (основной акцент — на классической реляционной модели), концептуального моделирования предметной области, даталогического проектирования, использования языка запросов SQL, создания программных приложений, обращающихся к базам данных. В качестве сервера баз данных используется PostgreSQL, в качестве инструментальных языков программирования — Python, Java и Си.Содержание курса соответствует курсу CS270T Databases, входящему в свод знаний по программной инженерии Software Engineering Education Knowledge (SEEK), описанный в документе Software Engineering 2004, определяющий руководящие принципы создания учебных планов для преподавания программной инженерии в высших учебных заведениях. Построение курса отвечает требованиям отечественных профессиональных стандартов в области информационных технологий и международного профессионального стандарта Guide to the Software Engineering Body of Knowledge (SWEBOK) ISO/IEC TR 19759 IEEE.
+34: 
+35: #### Цель освоения дисциплины
+36: 
+37: - Овладение студентами классическими и современными подходами к моделированию данных и методами управления данными, позволяющими анализировать, моделировать и проектировать базы данных и разрабатывать программные приложения, использующие базы данных.
+38: 
+39: #### Планируемые результаты обучения
+40: 
+41: - Знает основы теории организации и применения баз данных;
+42: - Знает место и роль баз данных в информационных системах, основы организации промышленных систем управления базами данных;
+43: - Знает современное состояние и тенденции развития систем управления базами данных.
+44: - Знает уровни представления данных, основные модели данных, методы организации, поиска и обработки данных;
+45: - Знает операции реляционной алгебры;
+46: - Знает нормальные формы схем отношений;
+47: - Знает типы целостности данных, методы обеспечения целостности данных;
+48: - Знает языки запросов, их классификацию и области применения;
+49: - Знает язык запросов SQL в части средств описания данных и манипулирования данными;
+50: - Знает операторы выборки, добавления, модификации и удаления данных языка запросов SQL;
+51: - Знает способы обеспечения независимости и защиты данных с использованием представлений и хранимых процедур;
+52: - Умеет выполнять инфологическое проектирование баз данных методом «сущность-связь»;
+53: - Умеет выполнять логическое проектирование реляционных баз данных;
+54: - Умеет выполнять нормализацию схем отношений реляционных баз данных;
+55: - Умеет выбирать типы индексов, создавать и настраивать индексы;
+56: - Умеет использовать транзакции;
+57: - Умеет получать доступ к данным с помощью курсоров;
+58: - Владеет навыками применения методов описания схем баз данных в современных СУБД;
+59: - Владеет навыками инфологического проектирования баз данных методом «сущность-связь»;
+60: - Владеет навыками нормализации схем отношений реляционных баз данных;
+61: - Владеет навыками разработки приложений баз данных, выполняющихся на компьютере пользователя;
+62: - Владеет навыками разработки приложений баз данных с веб-интерфейсом;
+63: - Владеет в применении средств объектно-реляционного отображения.
+64: - Знает принципы работы векторных баз данных и RAG (Retrieval-Augmented Generation) архитектур.
+65: - Знает принципы работы векторных баз данных и RAG (Retrieval-Augmented Generation) архитектуры.
+66: - Владеет технологиями гибридного поиска (Full-Text Search + Semantic Vector Search).
+67: - Умеет использовать векторные базы данных для семантического поиска.
+68: 
+69: #### Содержание учебной дисциплины
+70: 
+71: - Введение в управление данными
+72: - Моделирование данных
+73: - Проектирование баз данных: диаграммы сущность-связь
+74: - Реляционная модель данных
+75: - Проектирование реляционных баз данных
+76: - Реляционные языки запросов
+77: - Язык SQL: DDL
+78: - Язык SQL: Запросы
+79: - Язык SQL: DML
+80: - Процедурные расширения SQL
+81: - Доступ к базам данных из приложений
+82: - Файловые структуры хранения данных
+83: - Индексы
+84: - Выполнение запросов
+85: - Управление транзакциями
+86: - Векторные базы данных и RAG-архитектуры
+87: 
+88: #### Элементы контроля
+89: 
+90: - Эссе
+91: - Контрольная работа
+92: - Письменный экзамен
+93: - Тест
+94: - Работа на семинарах
+95: - Групповой проект
+96: 
+97: #### Промежуточная аттестация
+98: 
+99: - 2026/2027 4th module
+100: 0.07 * Тест + 0.21 * Групповой проект + 0.07 * Эссе + 0.21 * Работа на семинарах + 0.3 * Письменный экзамен + 0.14 * Контрольная работа
+101: 
+102: #### Список литературы
+103: 
+104: #### Рекомендуемая основная литература
+105: 
+106: - Foster, E. C., & Godbole, S. (2016). Database Systems : A Pragmatic Approach (Vol. Second edition). [United States]: Apress. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1174505
+107: - Petrov, A., & O’Reilly for Higher Education (Firm). (2019). Database Internals : A Deep Dive Into How Distributed Data Systems Work (Vol. First edition). Sebastopol, CA: O’Reilly Media. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=2250514
+108: - PostgreSQL. Профессиональный SQL - Моргунов Е. П. - Издательство "ДМК Пресс" - 978-5-93700-373-7 - 2025 - русский - https://e.lanbook.com/book/514901 - ЛАНЬ - 514901
+109: - Маркин, А. В. Базы данных. PostgreSQL : учебник для вузов / А. В. Маркин. — 2-е изд. — Москва : Издательство Юрайт, 2026. — 840 с. — (Высшее образование). — ISBN 978-5-534-22003-2. — Текст : электронный // Образовательная платформа Юрайт [сайт]. — URL: https://urait.ru/bcode/600524 (дата обращения: 02.07.2026).
+110: - Проектирование, разработка и использование баз данных в PostgreSQL - Евдошенко О. И. - МИРЭА - Российский технологический университет - 978-5-7339-2574-5 - 2025 - русский - https://e.lanbook.com/book/504835 - ЛАНЬ - 504835
+111: 
+112: #### Рекомендуемая дополнительная литература
+113: 
+114: - Celko, J. (2014). Joe Celko’s SQL for Smarties : Advanced SQL Programming (Vol. Fifth edition). Amsterdam: Morgan Kaufmann. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=924899
+115: - Connolly, T. M., & Begg, C. (2015). Database Systems: A Practical Approach to Design, Implementation, and Management, Global Edition (Vol. Sixth edition, Global edition). Harlow: Pearson. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1419568
+116: - Databases reference sheets: Date with Java, SQL, XML, JAXB, JDBC, JPA, JPA Inheritance / Rodrigo García Carmona. (2016). Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsbas&AN=edsbas.991AD36F
+117: - Date, C. J. (2015). SQL and Relational Theory : How to Write Accurate SQL Code (Vol. Third edition). Sebastopol, CA: O’Reilly Media. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1099367
+118: - Date, C. J. (2016). The New Relational Database Dictionary : Terms, Concepts, and Examples (Vol. New and expanded edition). Sebastopol, CA: O’Reilly Media. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1136522
+119: - Haq, Q. M. R. U. (2016). Data Mapping for Data Warehouse Design. Amsterdam: Morgan Kaufmann. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1115852
+120: - Jukic, N., Vrbsky, S., & Nestorov, S. (2017). Database Systems : Introduction to Databases and Data Warehouses. Burlington, Virginia: Prospect Press. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1562389
+121: - Mohanty, H., Bhuyan, P., & Chenthati, D. (2015). Big Data : A Primer. New Delhi: Springer. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1020194
+122: - Ottinger, J. B., Linwood, J., & Minter, D. (2016). Beginning Hibernate : For Hibernate 5 (Vol. Fourth edition). [United States]: Apress. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1360349
+123: - Rad, R. (2016). Mastering Hibernate. Birmingham, UK: Packt Publishing. Retrieved from http://search.ebscohost.com/login.aspx?direct=true&site=eds-live&db=edsebk&AN=1239416
+124: 
+125: #### Авторы
+126: 
+127: - Брейман Александр Давидович
+128: - Буцкая Евгения Александровна

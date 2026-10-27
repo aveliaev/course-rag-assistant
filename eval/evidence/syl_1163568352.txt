@@ -1,0 +1,61 @@
+1: # Mathematical Methods for Data Analysis
+2: 
+3: 2026/2027
+4: Учебный год
+5: 
+6: ENG
+7: Обучение ведется на английском языке
+8: 
+9: 5
+10: Кредиты
+11: 
+12: Кто читает:[Департамент больших данных и информационного поиска](https://cs.hse.ru/big-data/)
+13: 
+14: Статус:Курс обязательный
+15: Когда читается:3-й курс, 1, 2 модуль
+16: 
+17: #### Преподаватели
+18: 
+19: [
+20: 
+21: Азин Юрий Александрович](https://www.hse.ru/org/persons/868182613)
+22: 
+23: [
+24: 
+25: Бураков Даниил Игоревич](https://www.hse.ru/org/persons/305063304)
+26: 
+27: [
+28: 
+29: Горбунов Иван Игоревич](https://www.hse.ru/org/persons/208494206)
+30: 
+31: [
+32: 
+33: Калашников Александр Юрьевич](https://www.hse.ru/staff/sleep3r)
+34: 
+35: [
+36: 
+37: Кантонистова Елена Олеговна](https://www.hse.ru/org/persons/211268525)
+38: 
+39: [
+40: 
+41: Насыхова Анастасия Артемовна](https://www.hse.ru/org/persons/401628060)
+42: 
+43: [
+44: 
+45: Петров Андрей Иванович](https://www.hse.ru/org/persons/225567505)
+46: 
+47: [
+48: 
+49: Степашин Егор Александрович](https://www.hse.ru/org/persons/1203137907)
+50: 
+51: [
+52: 
+53: Тихонова Мария Ивановна](https://www.hse.ru/org/persons/218372994)
+54: 
+55: ### Course Syllabus
+56: 
+57: [Ask Question](https://pmo.hse.ru/servicedesk/customer/portal/81/create/3180)
+58: 
+59: #### Abstract
+60: 
+61: This course presents the foundations of rapidly developing scientific field called intellectual data analysis or machine learning. This field is about algorithms that automatically adjust to data and extract valuable structure and dependencies from it. The automatic adjustment to data by machine learning algorithms makes it especially convenient tool for analysis of big volumes of data, having complicated and diverse structure which is a common case in modern "information era". During this course most common problems of machine learning are considered, including classification, regression, dimensionality reduction, clustering, collaborative filtering and ranking. The most famous and widely used algorithms suited to solve these problems are presented. For each algorithm its data assumptions, advantages and disadvantages as well as connections with other algorithms are analyzed to provide an in-depth and critical understanding of the subject. Much attention is given to developing practical skills during the course. Students are asked to apply studied algorithms to real data, critically analyze their output and solve theoretical problems highlighting important concepts of the course. Machine learning algorithms are applied using python programming language and its scientific extensions, which are also taught during the course. The course is designed for students of the bachelor program "Software Engineering" at the Faculty of Computer Science, HSE.

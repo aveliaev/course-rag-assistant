@@ -1,0 +1,44 @@
+{
+  "schema_version": "2.0",
+  "case_count": 300,
+  "splits": {
+    "test": 244,
+    "dev": 56
+  },
+  "statuses": {
+    "refuse": 17,
+    "clarify": 4,
+    "answer": 236,
+    "escalation_offered": 21,
+    "answer_partial": 20,
+    "draft_ready": 2
+  },
+  "source_inputs": {
+    "fkn_golden_300.jsonl": "6c3f15f6961608b0b1d67759265cd0eea3e04a14946d23321f229fb2304a2e1d",
+    "students.json": "59383e93e5c93c9b9e6303d81c58937e3952c89c304b7a7a12fdb230aee7ce09",
+    "design_doc_kt2.md": "56f27360e61a88a7d563f67d50a36d7b9448e851edf1ba1c2c1742e6350e5026"
+  },
+  "profiles_path": "../inputs/students.json",
+  "corpus_root": "../../tmp_dataset",
+  "registry_path": "registry.csv",
+  "contract_path": "form_schemas.json",
+  "gold_sha256": "b36632c3ca59b7168456edd7867b94195269de258aa9ddaccf674dba1e9ed4f3",
+  "correction_rules_sha256": "4845c2648b5f278c87572cb29dbae6dc7d6006925e39945ecb6cf545ba22b3f0",
+  "test_access": "All test prompts/facts are now available to the correction author; this version is visible eval, not a hidden holdout.",
+  "all_300_semantically_double_reviewed": false,
+  "frozen": false,
+  "scope": "One-turn behavior and source-backed instructions; no completed multi-turn application is claimed.",
+  "artifact_sha256": {
+    "fkn_golden_300.jsonl": "b36632c3ca59b7168456edd7867b94195269de258aa9ddaccf674dba1e9ed4f3",
+    "registry.csv": "cf9360fc22e18c477dfd63bf564c12ccfd211b48d9cf4dac5c64b50407be029e",
+    "form_schemas.json": "ccf6030bdfd05dbe5089de69858b7b61217565186918822e7f4b31161b728408",
+    "design_doc_kt2.md": "600863bcace3ddb9c4f3876ce360e9e6da12cfa358047da79d0b2aad338acd12",
+    "reviewed_candidate.jsonl": "bbe46be57a6e8e081dc7929249e829fcea64b34fa28baaa5e385dea34e486f33",
+    "review_input_manifest.json": "32e4f4a257992e44bfdd713cc43d2a635e9d59d0645bce0af0092b30d29deed7",
+    "review_a.jsonl": "1968c3fe0a4a8f6b6f6df9ee0157567d0e79e26bd36500f9aeeffd3322cde848",
+    "review_b.jsonl": "dc66e2f3cd4843291c1b178354b08de906b8bb12b4d8d2ed811c27d7e99aca01",
+    "resolution_a.jsonl": "45cd346d06b8f099af3e1a7d775c8e1556a933bc13beac6d15c07eb8b1fc2e3c",
+    "resolution_b.jsonl": "6e6c94ac4ef54dd74759611a71c3f01b3cf26da1293f8684e9939c40adc612ea",
+    "correction_verification.json": "713b72e903a353128815c7ea70b5c655d1cc04b50fa1ee00fe568594ade0997b"
+  }
+}

@@ -1,0 +1,52 @@
+1: # Центр стипендиальных и благотворительных программ (ЦСиБП)
+2: 
+3: [Стипендиальные консультации](https://www.hse.ru/scholarships/Scholarship_consultations)
+4: 
+5: - [Стипендиальные консультации](https://www.hse.ru/scholarships/Scholarship_consultations)
+6: - [Заказать справку о подтверждении статуса стипендиата](https://www.hse.ru/scholarships/Scholarship_kons)
+7: 
+8: [Единое окно для обучающихся, имеющих детей или ожидающих рождения ребенка, студенческих семей](https://www.hse.ru/scholarships/financial_support_for_families)
+9: 
+10: - [Семейные консультации](https://pmo.hse.ru/servicedesk/customer/portal/186/create/3367)
+11: - [Навигатор мер соцподдержки для семей с детьми](https://www.gosuslugi.ru/social-navigator)
+12: - [Материальная (финансовая) поддержка](https://www.hse.ru/scholarships/window)
+13: - [Инфраструктурная поддержка](https://www.hse.ru/scholarships/window)
+14: - [Программы лояльности](https://www.hse.ru/scholarships/window_1)
+15: - [Федеральные меры поддержки молодых семей](https://www.hse.ru/scholarships/lgota)
+16: - [Контакты](https://www.hse.ru/scholarships/contact_persons)
+17: 
+18: [Академические стипендии](https://www.hse.ru/scholarships/academic)
+19: 
+20: - [Государственная академическая стипендия](https://www.hse.ru/scholarships/academic)
+21: - [Повышенная государственная академическая стипендия](https://www.hse.ru/scholarships/pgas)
+22: 
+23: [Стипендии и гранты Президента и Правительства](https://www.hse.ru/scholarships/president_prioritet)
+24: 
+25: [Стипендии фондов и партнеров](https://www.hse.ru/scholarships/alfa)
+26: 
+27: [Социальные стипендии](https://www.hse.ru/scholarships/gss_)
+28: 
+29: - [Государственная социальная стипендия](https://www.hse.ru/scholarships/gss_)
+30: 
+31: [Именные стипендии](https://www.hse.ru/scholarships/name_new)
+32: 
+33: - [Стипендии выдающихся ученых НИУ ВШЭ](https://www.hse.ru/scholarships/name_new)
+34: - [Стипендии Минобрнауки России](https://www.hse.ru/scholarships/name_mon)
+35: 
+36: [Материальная помощь и социальная поддержка](https://www.hse.ru/scholarships/stud_finsupport)
+37: 
+38: [Оформление карты москвича](https://www.hse.ru/scholarships/transport)
+39: 
+40: [Стипендии аспирантам](https://aspirantura.hse.ru/stip)
+41: 
+42: [Выплата стипендии](https://fd.hse.ru/servisy/studentam/vyplata_stipendii)
+43: 
+44: [Программа «РЖД Бонус»](https://www.hse.ru/scholarships/rzd_bonus)
+45: 
+46: [ОСНОВА - Платформа твоего благополучия](https://osnova.hse.ru/)
+47: 
+48: ---
+49: 
+50: Источник: [https://www.hse.ru/scholarships/](https://www.hse.ru/scholarships/)
+51: 
+52: Снимок загружен: 2026-10-03. Перед использованием проверьте актуальность оригинала.

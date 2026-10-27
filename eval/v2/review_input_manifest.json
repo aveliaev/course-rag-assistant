@@ -1,0 +1,9 @@
+{
+  "candidate_path": "reviewed_candidate.jsonl",
+  "gold_sha256": "bbe46be57a6e8e081dc7929249e829fcea64b34fa28baaa5e385dea34e486f33",
+  "reviewers": [
+    "A",
+    "B"
+  ],
+  "kind": "post_correction_review_not_initial_annotation"
+}
