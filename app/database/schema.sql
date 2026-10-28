@@ -1,0 +1,21 @@
+
+PRAGMA foreign_keys=ON;
+CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL);
+CREATE TABLE programs(id INTEGER PRIMARY KEY,name TEXT UNIQUE NOT NULL,faculty TEXT NOT NULL CHECK(faculty='ФКН'),campus TEXT NOT NULL CHECK(campus='Москва'),level TEXT NOT NULL CHECK(level='Бакалавриат'));
+CREATE TABLE study_groups(id INTEGER PRIMARY KEY,code TEXT UNIQUE NOT NULL,program_id INTEGER NOT NULL REFERENCES programs,course INTEGER NOT NULL CHECK(course BETWEEN 1 AND 4),admission_year INTEGER NOT NULL);
+CREATE TABLE students(id TEXT PRIMARY KEY,last_name TEXT NOT NULL,first_name TEXT NOT NULL,patronymic TEXT NOT NULL,full_name TEXT NOT NULL,email TEXT UNIQUE NOT NULL CHECK(email GLOB '*@edu.hse.ru'),password_hash TEXT NOT NULL,birth_year INTEGER NOT NULL,group_id INTEGER NOT NULL REFERENCES study_groups,status TEXT NOT NULL CHECK(status IN ('studying','academic_leave','graduated')),avatar_key TEXT NOT NULL,role TEXT NOT NULL CHECK(role IN ('student','group_leader','admin')),interface_language TEXT NOT NULL CHECK(interface_language IN ('ru','en')),notifications_enabled INTEGER NOT NULL CHECK(notifications_enabled IN (0,1)),schedule_notifications INTEGER NOT NULL CHECK(schedule_notifications IN (0,1)),deadline_notifications INTEGER NOT NULL CHECK(deadline_notifications IN (0,1)),request_notifications INTEGER NOT NULL CHECK(request_notifications IN (0,1)),is_synthetic INTEGER NOT NULL CHECK(is_synthetic=1));
+CREATE VIEW student_profiles AS SELECT s.*,g.code AS study_group,g.course,g.admission_year,p.name AS educational_program,p.faculty,p.campus,p.level FROM students s JOIN study_groups g ON s.group_id=g.id JOIN programs p ON g.program_id=p.id;
+CREATE TABLE courses(id INTEGER PRIMARY KEY,title TEXT UNIQUE NOT NULL);
+CREATE TABLE schedule(id INTEGER PRIMARY KEY,group_id INTEGER NOT NULL REFERENCES study_groups,course_id INTEGER NOT NULL REFERENCES courses,lesson_type TEXT NOT NULL,starts_at TEXT NOT NULL,ends_at TEXT NOT NULL CHECK(ends_at>starts_at),teacher_name TEXT NOT NULL,location TEXT NOT NULL);
+CREATE TABLE grades(id INTEGER PRIMARY KEY,student_id TEXT NOT NULL REFERENCES students,course_id INTEGER NOT NULL REFERENCES courses,assessment TEXT NOT NULL,score INTEGER NOT NULL CHECK(score BETWEEN 0 AND 10),assessed_on TEXT NOT NULL);
+CREATE TABLE deadlines(id INTEGER PRIMARY KEY,student_id TEXT NOT NULL REFERENCES students,title TEXT NOT NULL,due_at TEXT NOT NULL,completed INTEGER NOT NULL CHECK(completed IN (0,1)));
+CREATE TABLE document_requests(id INTEGER PRIMARY KEY,student_id TEXT NOT NULL REFERENCES students,document_type TEXT NOT NULL,language TEXT NOT NULL,purpose TEXT NOT NULL,status TEXT NOT NULL CHECK(status IN ('draft','submitted','processing','ready')),created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE TABLE conversations(id INTEGER PRIMARY KEY,student_id TEXT NOT NULL REFERENCES students,title TEXT NOT NULL,created_at TEXT NOT NULL);
+CREATE TABLE messages(id INTEGER PRIMARY KEY,conversation_id INTEGER NOT NULL REFERENCES conversations,role TEXT NOT NULL CHECK(role IN ('user','assistant')),body TEXT NOT NULL,created_at TEXT NOT NULL);
+CREATE INDEX idx_student_group ON students(group_id);
+CREATE INDEX idx_schedule_group ON schedule(group_id,starts_at);
+CREATE INDEX idx_grades_student ON grades(student_id);
+CREATE INDEX idx_deadlines_student ON deadlines(student_id,due_at);
+CREATE INDEX idx_requests_student ON document_requests(student_id);
+CREATE INDEX idx_chats_student ON conversations(student_id);
+CREATE INDEX idx_messages_chat ON messages(conversation_id,id);
