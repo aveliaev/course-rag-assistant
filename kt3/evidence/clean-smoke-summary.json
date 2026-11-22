@@ -1,0 +1,85 @@
+{
+  "planned": 20,
+  "attempted": 20,
+  "http_responses": 9,
+  "errors": 0,
+  "active_run_sec": 26.91,
+  "p50_sec": 0.182,
+  "p95_sec": 3.449,
+  "usage": {
+    "prompt_tokens": 15428,
+    "completion_tokens": 1253,
+    "total_tokens": 16681
+  },
+  "responses_with_usage": 9,
+  "avg_tokens_per_successful_response": null,
+  "marginal_cost_rub_per_request": 0.0,
+  "pricing": "GigaChat-3-Ultra under GIGACHAT_API_PERS Freemium quota",
+  "api_models": {
+    "GigaChat-3-Ultra:32.9.16.9": 9
+  },
+  "manual_planned": 0,
+  "manual_graded": 0,
+  "valid_format": {
+    "passed": 20,
+    "total": 20
+  },
+  "status_ok": {
+    "passed": 9,
+    "total": 20
+  },
+  "route_ok": {
+    "passed": 20,
+    "total": 20
+  },
+  "no_unsupported_citations": {
+    "passed": 20,
+    "total": 20
+  },
+  "format_status_route_all_3_repeats": null,
+  "action_ok": {
+    "passed": 20,
+    "total": 20
+  },
+  "forms": {
+    "temp_pass": {
+      "cases": 1,
+      "form_ok": {
+        "passed": 1,
+        "total": 1
+      },
+      "fields": {
+        "passed": 5,
+        "total": 5
+      }
+    },
+    "enrollment_certificate": {
+      "cases": 2,
+      "form_ok": {
+        "passed": 2,
+        "total": 2
+      },
+      "fields": {
+        "passed": 19,
+        "total": 19
+      }
+    }
+  },
+  "gold_hit_5": {
+    "passed": 7,
+    "total": 16
+  },
+  "gold_hit_20": {
+    "passed": 8,
+    "total": 16
+  },
+  "cited_gold_document": {
+    "passed": 6,
+    "total": 16
+  },
+  "generation_calls": 9,
+  "fallback_count": 1,
+  "budget_violations": 0,
+  "deadline_exceeded": 0,
+  "input_cached_tokens": 0
+}

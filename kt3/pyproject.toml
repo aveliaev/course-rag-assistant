@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fkn-assistant"
+version = "0.1.0"
+description = "RAG baseline and evaluation harness for the FKN student assistant"
+requires-python = ">=3.12"
+dependencies = [
+    "qdrant-client==1.14.3",
+    "onnxruntime==1.21.1",
+    "numpy==2.5.5",
+    "tokenizers==0.21.4",
+    "PyMuPDF==1.26.5",
+    "python-docx==1.2.0",
+    "openpyxl==3.1.5",
+    "psycopg[binary]==3.2.9",
+    "openai==2.8.1",
+    "pydantic==2.12.5",
+    "httpx==0.28.1",
+]
+
+[project.scripts]
+fkn-ask = "fkn_assistant.ask:main"
+fkn-eval = "fkn_assistant.evaluation.runner:main"
+fkn-report = "fkn_assistant.evaluation.report:main"
+fkn-index = "fkn_assistant.index:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fkn_assistant = ["resources/*"]
+
+[tool.ruff]
+src = ["src"]

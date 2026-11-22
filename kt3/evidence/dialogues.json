@@ -1,0 +1,1423 @@
+[
+  {
+    "scenario": "certificate_language",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "clarify",
+      "draft_ready",
+      "submitted",
+      "cancelled"
+    ],
+    "applications": 1,
+    "turns": [
+      {
+        "text": "Оформи бумажную справку об обучении для работодателя.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "clarify",
+          "route": "enrollment_certificate",
+          "answer": "Уточни язык справки.",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "faculty": "ФКН",
+            "educational_program": "Прикладная математика и информатика",
+            "level": "Бакалавриат",
+            "course": 1,
+            "student_id": "demo-student-001",
+            "format": "paper",
+            "copies": 1,
+            "purpose": "для работодателя"
+          },
+          "missing_fields": [
+            "language"
+          ],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "enrollment_certificate.language",
+              "citation_id": "kt3-local-sandbox-v2:enrollment_certificate.language",
+              "path": "form_rules.json",
+              "text": "Укажите язык справки. Доступны русский и английский."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "faculty": "profile",
+            "educational_program": "profile",
+            "level": "profile",
+            "course": "profile",
+            "student_id": "profile",
+            "format": "user",
+            "copies": "default",
+            "purpose": "user"
+          },
+          "draft_id": "511d6d0a-b621-4067-accf-49d8f83399a7",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0233
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "На английском.",
+        "button": null,
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "enrollment_certificate",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "level": "Бакалавриат",
+            "copies": 1,
+            "course": 1,
+            "format": "paper",
+            "faculty": "ФКН",
+            "purpose": "для работодателя",
+            "full_name": "Иванов Александр Александрович",
+            "student_id": "demo-student-001",
+            "educational_program": "Прикладная математика и информатика",
+            "language": "en"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "enrollment_certificate.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:enrollment_certificate.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, язык, формат, число экземпляров и цель. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "level": "profile",
+            "copies": "default",
+            "course": "profile",
+            "format": "user",
+            "faculty": "profile",
+            "purpose": "user",
+            "full_name": "profile",
+            "student_id": "profile",
+            "educational_program": "profile",
+            "language": "user"
+          },
+          "draft_id": "511d6d0a-b621-4067-accf-49d8f83399a7",
+          "revision": 2
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0101
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:02:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "submitted",
+          "route": "enrollment_certificate",
+          "answer": "Заявка принята в учебной песочнице.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [],
+          "number": "faa4b10b-4321-4377-8382-97442cb27955"
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0183
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            },
+            {
+              "event": "submitted",
+              "revision": 2
+            }
+          ],
+          "applications": [
+            {
+              "number": "faa4b10b-4321-4377-8382-97442cb27955",
+              "status": "received"
+            }
+          ]
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:03:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "submitted",
+          "route": "enrollment_certificate",
+          "answer": "Заявка уже принята.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [],
+          "number": "faa4b10b-4321-4377-8382-97442cb27955"
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0111
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            },
+            {
+              "event": "submitted",
+              "revision": 2
+            }
+          ],
+          "applications": [
+            {
+              "number": "faa4b10b-4321-4377-8382-97442cb27955",
+              "status": "received"
+            }
+          ]
+        }
+      },
+      {
+        "text": "",
+        "button": "cancel",
+        "now": "2026-10-27T10:04:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "cancelled",
+          "route": "enrollment_certificate",
+          "answer": "Заявка отменена.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0121
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            },
+            {
+              "event": "submitted",
+              "revision": 2
+            },
+            {
+              "event": "cancelled",
+              "revision": 2
+            }
+          ],
+          "applications": [
+            {
+              "number": "faa4b10b-4321-4377-8382-97442cb27955",
+              "status": "withdrawn"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "pass_building",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "clarify",
+      "draft_ready",
+      "cancelled"
+    ],
+    "applications": 0,
+    "turns": [
+      {
+        "text": "Забыл пропуск, нужен временный на завтра.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "clarify",
+          "route": "temp_pass",
+          "answer": "Уточни корпус.",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "study_group": "БПМИ261",
+            "student_id": "demo-student-001",
+            "date": "2026-10-28",
+            "reason": "forgot"
+          },
+          "missing_fields": [
+            "building"
+          ],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.building",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.building",
+              "path": "form_rules.json",
+              "text": "Для временного пропуска укажите корпус DEMO_A или DEMO_B."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "study_group": "profile",
+            "student_id": "profile",
+            "date": "user",
+            "reason": "user"
+          },
+          "draft_id": "31fc6188-f95f-4189-b4d8-abb1e69a92ed",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0139
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "DEMO_B",
+        "button": null,
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Check your draft and confirm.",
+          "fields": {
+            "date": "2026-10-28",
+            "reason": "forgot",
+            "full_name": "Иванов Александр Александрович",
+            "student_id": "demo-student-001",
+            "study_group": "БПМИ261",
+            "building": "DEMO_B"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "date": "user",
+            "reason": "user",
+            "full_name": "profile",
+            "student_id": "profile",
+            "study_group": "profile",
+            "building": "user"
+          },
+          "draft_id": "31fc6188-f95f-4189-b4d8-abb1e69a92ed",
+          "revision": 2
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0108
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "cancel",
+        "now": "2026-10-27T10:02:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "cancelled",
+          "route": "temp_pass",
+          "answer": "Заявка отменена.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0169
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "clarify",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            },
+            {
+              "event": "cancelled",
+              "revision": 2
+            }
+          ],
+          "applications": []
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "submit_error",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "draft_ready",
+      "submit_unavailable",
+      "submitted"
+    ],
+    "applications": 1,
+    "turns": [
+      {
+        "text": "Забыл пропуск. Нужен временный на завтра в DEMO_A.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "study_group": "БПМИ261",
+            "student_id": "demo-student-001",
+            "date": "2026-10-28",
+            "building": "DEMO_A",
+            "reason": "forgot"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "study_group": "profile",
+            "student_id": "profile",
+            "date": "user",
+            "building": "user",
+            "reason": "user"
+          },
+          "draft_id": "4491ece5-a303-4302-9583-4f1c4ab955fe",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0094
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {
+          "fail": "submit"
+        },
+        "response": {
+          "status": "temporary_error",
+          "route": "temp_pass",
+          "answer": "Черновик сохранён. Попробуй позже.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0104
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "submit_unavailable",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:02:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "submitted",
+          "route": "temp_pass",
+          "answer": "Заявка принята в учебной песочнице.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [],
+          "number": "36d52450-88f7-4fa8-8067-2672026b0301"
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0262
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "submit_unavailable",
+              "revision": 1
+            },
+            {
+              "event": "submitted",
+              "revision": 1
+            }
+          ],
+          "applications": [
+            {
+              "number": "36d52450-88f7-4fa8-8067-2672026b0301",
+              "status": "received"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "step_limit",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "draft_ready"
+    ],
+    "applications": 0,
+    "turns": [
+      {
+        "text": "Забыл пропуск. Нужен временный на завтра в DEMO_A.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "study_group": "БПМИ261",
+            "student_id": "demo-student-001",
+            "date": "2026-10-28",
+            "building": "DEMO_A",
+            "reason": "forgot"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "study_group": "profile",
+            "student_id": "profile",
+            "date": "user",
+            "building": "user",
+            "reason": "user"
+          },
+          "draft_id": "f9f4179a-4034-4b18-bb5e-fe1734a1e1bd",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0146
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {
+          "limit": 1
+        },
+        "response": {
+          "status": "refuse",
+          "route": "rag_answer",
+          "answer": "The step limit was reached.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": {
+            "stage": "budget",
+            "code": "step_limit"
+          },
+          "latency_sec": 0.0
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "edit",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "draft_ready",
+      "draft_ready",
+      "submitted"
+    ],
+    "applications": 1,
+    "turns": [
+      {
+        "text": "Забыл пропуск. Нужен временный на завтра в DEMO_A.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "study_group": "БПМИ261",
+            "student_id": "demo-student-001",
+            "date": "2026-10-28",
+            "building": "DEMO_A",
+            "reason": "forgot"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "study_group": "profile",
+            "student_id": "profile",
+            "date": "user",
+            "building": "user",
+            "reason": "user"
+          },
+          "draft_id": "48ba930c-a6bc-4b71-a640-385aa6a8d079",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0067
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "Исправь корпус на DEMO_B.",
+        "button": null,
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "date": "2026-10-28",
+            "reason": "forgot",
+            "building": "DEMO_B",
+            "full_name": "Иванов Александр Александрович",
+            "student_id": "demo-student-001",
+            "study_group": "БПМИ261"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "date": "user",
+            "reason": "user",
+            "building": "user",
+            "full_name": "profile",
+            "student_id": "profile",
+            "study_group": "profile"
+          },
+          "draft_id": "48ba930c-a6bc-4b71-a640-385aa6a8d079",
+          "revision": 2
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.007
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:02:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "refuse",
+          "route": "rag_answer",
+          "answer": "Карточка недоступна или устарела.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0065
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:03:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "submitted",
+          "route": "temp_pass",
+          "answer": "Заявка принята в учебной песочнице.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [],
+          "number": "95729994-985f-4c70-a314-ac64c7509106"
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0101
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "draft_ready",
+              "revision": 2
+            },
+            {
+              "event": "submitted",
+              "revision": 2
+            }
+          ],
+          "applications": [
+            {
+              "number": "95729994-985f-4c70-a314-ac64c7509106",
+              "status": "received"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "repeat",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "draft_ready",
+      "submitted"
+    ],
+    "applications": 1,
+    "turns": [
+      {
+        "text": "Забыл пропуск. Нужен временный на завтра в DEMO_A.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "study_group": "БПМИ261",
+            "student_id": "demo-student-001",
+            "date": "2026-10-28",
+            "building": "DEMO_A",
+            "reason": "forgot"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "study_group": "profile",
+            "student_id": "profile",
+            "date": "user",
+            "building": "user",
+            "reason": "user"
+          },
+          "draft_id": "1c716baf-f046-43e7-a15e-26bb292123ee",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0076
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "submitted",
+          "route": "temp_pass",
+          "answer": "Заявка принята в учебной песочнице.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [],
+          "number": "5a53eb2e-ffef-4671-94c0-7c85014876ae"
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0099
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "submitted",
+              "revision": 1
+            }
+          ],
+          "applications": [
+            {
+              "number": "5a53eb2e-ffef-4671-94c0-7c85014876ae",
+              "status": "received"
+            }
+          ]
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:02:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "submitted",
+          "route": "temp_pass",
+          "answer": "Заявка уже принята.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [],
+          "number": "5a53eb2e-ffef-4671-94c0-7c85014876ae"
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0058
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "submitted",
+              "revision": 1
+            }
+          ],
+          "applications": [
+            {
+              "number": "5a53eb2e-ffef-4671-94c0-7c85014876ae",
+              "status": "received"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "cancel",
+    "passed": true,
+    "checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "journal": [
+      "draft_ready",
+      "cancelled"
+    ],
+    "applications": 0,
+    "turns": [
+      {
+        "text": "Забыл пропуск. Нужен временный на завтра в DEMO_A.",
+        "button": null,
+        "now": "2026-10-27T10:00:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "draft_ready",
+          "route": "temp_pass",
+          "answer": "Проверь черновик и нажми «Подтвердить».",
+          "fields": {
+            "full_name": "Иванов Александр Александрович",
+            "study_group": "БПМИ261",
+            "student_id": "demo-student-001",
+            "date": "2026-10-28",
+            "building": "DEMO_A",
+            "reason": "forgot"
+          },
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": [
+            {
+              "source_kind": "synthetic",
+              "doc_id": "kt3_form_rules",
+              "version": "kt3-local-sandbox-v2",
+              "clause_id": "temp_pass.confirmation",
+              "citation_id": "kt3-local-sandbox-v2:temp_pass.confirmation",
+              "path": "form_rules.json",
+              "text": "Проверьте данные владельца, дату, корпус и причину. Черновик требуется подтвердить."
+            }
+          ],
+          "field_sources": {
+            "full_name": "profile",
+            "study_group": "profile",
+            "student_id": "profile",
+            "date": "user",
+            "building": "user",
+            "reason": "user"
+          },
+          "draft_id": "815e8e12-23c1-4193-bbc8-2cd373dd2796",
+          "revision": 1
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0069
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "cancel",
+        "now": "2026-10-27T10:01:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "cancelled",
+          "route": "temp_pass",
+          "answer": "Заявка отменена.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0067
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "cancelled",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      },
+      {
+        "text": "",
+        "button": "confirm",
+        "now": "2026-10-27T10:02:00+03:00",
+        "fixture": {},
+        "response": {
+          "status": "refuse",
+          "route": "temp_pass",
+          "answer": "Нужно актуальное подтверждение владельца.",
+          "fields": {},
+          "missing_fields": [],
+          "invalid_fields": [],
+          "citations": []
+        },
+        "trace": {
+          "steps": [
+            "profile",
+            "forms"
+          ],
+          "retrieved": [],
+          "context": [],
+          "model": null,
+          "usage": {},
+          "calls": 0,
+          "error": null,
+          "latency_sec": 0.0045
+        },
+        "evidence": {
+          "events": [
+            {
+              "event": "draft_ready",
+              "revision": 1
+            },
+            {
+              "event": "cancelled",
+              "revision": 1
+            }
+          ],
+          "applications": []
+        }
+      }
+    ]
+  }
+]

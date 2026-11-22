@@ -1,0 +1,88 @@
+{
+  "planned": 444,
+  "attempted": 444,
+  "http_responses": 201,
+  "errors": 0,
+  "active_run_sec": 684.25,
+  "p50_sec": 0.323,
+  "p95_sec": 4.196,
+  "usage": {
+    "prompt_tokens": 343167,
+    "completion_tokens": 26882,
+    "total_tokens": 370049
+  },
+  "responses_with_usage": 201,
+  "avg_tokens_per_successful_response": null,
+  "marginal_cost_rub_per_request": 0.0,
+  "pricing": "GigaChat-3-Ultra under GIGACHAT_API_PERS Freemium quota",
+  "api_models": {
+    "GigaChat-3-Ultra:32.9.16.9": 201
+  },
+  "manual_planned": 50,
+  "manual_graded": 0,
+  "valid_format": {
+    "passed": 441,
+    "total": 444
+  },
+  "status_ok": {
+    "passed": 208,
+    "total": 444
+  },
+  "route_ok": {
+    "passed": 441,
+    "total": 444
+  },
+  "no_unsupported_citations": {
+    "passed": 441,
+    "total": 444
+  },
+  "format_status_route_all_3_repeats": {
+    "passed": 67,
+    "total": 148
+  },
+  "action_ok": {
+    "passed": 444,
+    "total": 444
+  },
+  "forms": {
+    "temp_pass": {
+      "cases": 9,
+      "form_ok": {
+        "passed": 27,
+        "total": 27
+      },
+      "fields": {
+        "passed": 150,
+        "total": 150
+      }
+    },
+    "enrollment_certificate": {
+      "cases": 8,
+      "form_ok": {
+        "passed": 24,
+        "total": 24
+      },
+      "fields": {
+        "passed": 234,
+        "total": 234
+      }
+    }
+  },
+  "gold_hit_5": {
+    "passed": 155,
+    "total": 366
+  },
+  "gold_hit_20": {
+    "passed": 192,
+    "total": 366
+  },
+  "cited_gold_document": {
+    "passed": 112,
+    "total": 366
+  },
+  "generation_calls": 201,
+  "fallback_count": 8,
+  "budget_violations": 0,
+  "deadline_exceeded": 0,
+  "input_cached_tokens": 0
+}

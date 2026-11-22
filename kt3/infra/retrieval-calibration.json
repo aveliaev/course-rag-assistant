@@ -1,0 +1,116 @@
+{
+  "collection": "kt3_b0_002900212313f9f1",
+  "search_code": "58dbae56979f82fef496eb291892b0823d7764e989d8926a76ed3bc315a51894",
+  "threshold": 0.55,
+  "candidates": {
+    "0.45": 6,
+    "0.5": 6,
+    "0.55": 7,
+    "0.65": 6
+  },
+  "rows": [
+    {
+      "id": "E063",
+      "score": 0.5,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E285",
+      "score": 0.5555556,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E221",
+      "score": 0.75,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E033",
+      "score": 0.5833334,
+      "has_reference": true,
+      "hit5": true
+    },
+    {
+      "id": "E232",
+      "score": 0.5,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E038",
+      "score": 1.0,
+      "has_reference": true,
+      "hit5": true
+    },
+    {
+      "id": "E217",
+      "score": 0.7,
+      "has_reference": true,
+      "hit5": true
+    },
+    {
+      "id": "E110",
+      "score": 0.54761904,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E017",
+      "score": 0.8333334,
+      "has_reference": true,
+      "hit5": true
+    },
+    {
+      "id": "E189",
+      "score": 0.5,
+      "has_reference": false,
+      "hit5": false
+    },
+    {
+      "id": "E209",
+      "score": 0.8333334,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E114",
+      "score": 0.5,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E164",
+      "score": 0.75,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E213",
+      "score": 0.5,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E086",
+      "score": 1.0,
+      "has_reference": true,
+      "hit5": true
+    },
+    {
+      "id": "E256",
+      "score": 0.5,
+      "has_reference": true,
+      "hit5": false
+    },
+    {
+      "id": "E175",
+      "score": 1.0,
+      "has_reference": true,
+      "hit5": true
+    }
+  ],
+  "source": "frozen dev smoke (overlaps full dev); default Qdrant RRF"
+}

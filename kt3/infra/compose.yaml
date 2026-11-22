@@ -1,0 +1,26 @@
+name: fkn-kt3
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.14.1@sha256:419d72603f5346ee22ffc4606bdb7beb52fcb63077766fab678e6622ba247366
+    ports:
+      - "127.0.0.1:${KT3_QDRANT_PORT:-16333}:6333"
+    volumes:
+      - vectors:/qdrant/storage
+  postgres:
+    image: postgres:16.8-alpine@sha256:3b057e1c2c6dfee60a30950096f3fab33be141dbb0fdd7af3d477083de94166c
+    environment:
+      POSTGRES_USER: kt3
+      POSTGRES_PASSWORD: kt3-local-only
+      POSTGRES_DB: kt3
+    ports:
+      - "127.0.0.1:${KT3_PG_PORT:-15432}:5432"
+    volumes:
+      - drafts:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kt3"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+volumes:
+  vectors:
+  drafts:
