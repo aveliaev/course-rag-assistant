@@ -1,0 +1,13 @@
+{
+  "variant": "rag-b1",
+  "dataset": "dev smoke",
+  "model_backend": "deterministic fixture, no provider calls",
+  "retrieval_backend": "local Qdrant and full frozen corpus",
+  "planned": 20,
+  "completed": 20,
+  "validated_plan": 20,
+  "two_model_steps": 9,
+  "run_errors": 0,
+  "unexpected_writes": 0,
+  "measurement_kind": "integration only, not model quality or latency evidence"
+}

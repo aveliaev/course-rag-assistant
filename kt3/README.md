@@ -24,8 +24,19 @@ kt3/.venv/bin/fkn-ask --question 'Какая шкала оценивания п�
 - `dev/summary.json` и `results-rag.md` содержат сводку. `dev/review.json` и `dev/review.md` содержат 50 примеров для ручной проверки.
 - `dialogues/dialogues.json` содержит семь последовательностей, шаги, ответы и выписку из базы по каждому ходу.
 
-[Дизайн-док КТ3](docs/B0.md) · [ADR фиксированного пайплайна](docs/ADR-001.md) · [Результат B0](docs/results-rag.md) · [Артефакты и ручная выборка](evidence/README.md)
+[Дизайн-док КТ3](docs/B0.md) · [ADR фиксированного пайплайна](docs/ADR-001.md) · [Результат B0](docs/results-rag.md) · [Сравнение с поиском без генерации](docs/results-search-only.md) · [Артефакты и ручная выборка](evidence/README.md)
 
+
+Подготовка `search-only` без доступа к API генерации, из корня после `git fetch origin kt-2`:
+
+~~~sh
+uv venv --python 3.12 kt3/.venv
+uv pip sync --require-hashes --python kt3/.venv/bin/python kt3/infra/requirements-lock.txt
+uv pip install --python kt3/.venv/bin/python --no-deps --editable ./kt3
+docker compose -f kt3/infra/compose.yaml up -d --wait
+kt3/.venv/bin/fkn-index
+cp kt3/infra/retrieval-calibration.json kt3/.cache/retrieval.json
+~~~
 
 Из корня репозитория после построения индекса:
 

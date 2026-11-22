@@ -3,6 +3,7 @@ import argparse
 import fcntl
 import json
 import math
+import platform
 import statistics
 import time
 from collections import Counter
@@ -140,7 +141,7 @@ def metric(rows, field):
     return {"passed": sum(values), "total": len(values)}
 
 
-def summarize(path, rows, planned, active_sec, manual_count):
+def summarize(path, rows, planned, active_sec, manual_count, *, pricing):
     success = [row for row in rows if row.get("error") is None]
     times = [row["latency_sec"] for row in rows]
     token_keys = ("prompt_tokens", "completion_tokens", "total_tokens")
@@ -165,7 +166,7 @@ def summarize(path, rows, planned, active_sec, manual_count):
         if success and all("total_tokens" in r.get("usage", {}) for r in success)
         else None,
         "marginal_cost_rub_per_request": 0.0,
-        "pricing": "GigaChat-3-Ultra under GIGACHAT_API_PERS Freemium quota",
+        "pricing": pricing,
         "api_models": dict(Counter(r.get("model") for r in success)),
         "manual_planned": manual_count,
         "manual_graded": 0,
@@ -312,6 +313,8 @@ def run(args):
         "endpoint": CHAT,
         "sdk_version": version("openai"),
         "pydantic_version": version("pydantic"),
+        "python_version": platform.python_version(),
+        "machine": platform.machine(),
         "request_options": OPTIONS,
         "seed": None,
         "seed_note": "API v1 без поля seed",
@@ -324,6 +327,17 @@ def run(args):
         from fkn_assistant.evaluation.rag_eval import settings as rag_settings
 
         settings.update(rag_settings(args.repo))
+        settings["runtime_versions"] = {
+            package: version(package)
+            for package in (
+                "numpy",
+                "onnxruntime",
+                "tokenizers",
+                "qdrant-client",
+                "psycopg",
+                "httpx",
+            )
+        }
         if args.variant == "search-only":
             settings.update(
                 prompt=None,
@@ -481,7 +495,15 @@ def execute(args, jobs, profiles, review, settings):
             if (case["id"], r) in completed
         ]
         summarize(
-            output, rows, len(jobs), active + time.perf_counter() - timer, len(review)
+            output,
+            rows,
+            len(jobs),
+            active + time.perf_counter() - timer,
+            len(review),
+            pricing=settings.get(
+                "billing_basis",
+                "GigaChat-3-Ultra under GIGACHAT_API_PERS Freemium quota",
+            ),
         )
         if (
             review

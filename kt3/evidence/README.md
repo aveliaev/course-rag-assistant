@@ -30,3 +30,12 @@ kt3/.venv/bin/fkn-report kt3/runs/from-archive/dev --grades kt3/evidence/b0-grad
 ~~~
 
 Человеческая сверка выполняется отдельно. Два участника сохраняют первичные оценки 10 отмеченных кейсов, затем считают согласие и фиксируют результаты. В итоговые метки входят решения по всем 50 ответам после разбора расхождений.
+
+## Сопоставимый контрольный прогон
+
+[`search-only-run.tar.gz`](search-only-run.tar.gz) содержит ответы, метаданные и сводку всех 148 ходов без генерации. [Парный отчёт](../docs/results-search-only.md) сравнивает первый повтор с B0. [B1 smoke](b1-fixture-smoke.json) содержит результат проверки исполнения на фикстуре модели.
+
+~~~sh
+tar -xzf kt3/evidence/search-only-run.tar.gz -C kt3/runs/from-archive
+kt3/.venv/bin/fkn-report kt3/runs/from-archive/dev --compare kt3/runs/from-archive/search-only
+~~~
