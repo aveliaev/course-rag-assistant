@@ -1,0 +1,401 @@
+openapi: 3.1.0
+info:
+  title: FKN KT3 Sandbox Gateway
+  version: 1.0.0
+  description: Учебный шлюз для синтетических профилей. Токен принадлежит доверенному
+    локальному клиенту. Таймаут клиентского запроса 3 с. Один вызов на ход. Повтор
+    подтверждения после неопределённого результата использует ту же карточку и токен.
+servers:
+- url: http://127.0.0.1:18083
+security:
+- localBearer: []
+paths:
+  /v1/forms/turn:
+    post:
+      operationId: formTurn
+      description: Два сценария заявок. Подтвердить или отменить можно только событием
+        button. Заявки записываются в локальную БД.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormTurn'
+      responses:
+        '200':
+          description: Результат шага или отсутствие формы
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/FormResult'
+                - type: object
+                  required:
+                  - status
+                  properties:
+                    status:
+                      const: no_form
+                  additionalProperties: false
+        '401':
+          description: Нет действительного токена доверенного клиента
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Нет доступа к синтетическому профилю или подтверждению
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: Некорректные данные запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: Таймаут или недоступность учебного хранилища
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /v1/staff/preview:
+    post:
+      operationId: previewStaffTicket
+      description: Доверенный клиент предлагает один из классов E1–E4 и показывает
+        сводку. Срок действия подтверждения 15 минут. Новая карточка того же request_id
+        отзывает прошлую. Карточка сама по себе не создаёт тикет.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TicketPreview'
+      responses:
+        '200':
+          description: Карточка для показа студенту
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StaffCard'
+        '401':
+          description: Нет действительного токена доверенного клиента
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Нет доступа к синтетическому профилю или подтверждению
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: Некорректные данные запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: Таймаут или недоступность учебного хранилища
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: По запросу уже есть тикет
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /v1/staff/confirm:
+    post:
+      operationId: confirmStaffTicket
+      description: Подтверждение показанной сводки отдельным событием интерфейса.
+        Запись в учебную очередь. Повтор возвращает тот же ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TicketConfirm'
+      responses:
+        '201':
+          description: Создана запись в учебной очереди
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '200':
+          description: Уже создано для этой карточки
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '401':
+          description: Нет действительного токена доверенного клиента
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Нет доступа к синтетическому профилю или подтверждению
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: Некорректные данные запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: Таймаут или недоступность учебного хранилища
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Карточка устарела или достигнут недельный лимит
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    localBearer:
+      type: http
+      scheme: bearer
+  schemas:
+    Button:
+      additionalProperties: false
+      properties:
+        action:
+          enum:
+          - confirm
+          - cancel
+          title: Action
+          type: string
+        draft_id:
+          format: uuid
+          title: Draft Id
+          type: string
+        revision:
+          minimum: 1
+          title: Revision
+          type: integer
+        confirmation:
+          anyOf:
+          - maxLength: 128
+            type: string
+          - type: 'null'
+          default: null
+          title: Confirmation
+      required:
+      - action
+      - draft_id
+      - revision
+      title: Button
+      type: object
+    FormTurn:
+      additionalProperties: false
+      properties:
+        profile_id:
+          maxLength: 80
+          minLength: 1
+          title: Profile Id
+          type: string
+        session_id:
+          maxLength: 100
+          minLength: 1
+          title: Session Id
+          type: string
+        text:
+          default: ''
+          maxLength: 2000
+          title: Text
+          type: string
+        button:
+          anyOf:
+          - $ref: '#/components/schemas/Button'
+          - type: 'null'
+          default: null
+      required:
+      - profile_id
+      - session_id
+      title: FormTurn
+      type: object
+    TicketPreview:
+      additionalProperties: false
+      properties:
+        profile_id:
+          maxLength: 80
+          minLength: 1
+          title: Profile Id
+          type: string
+        request_id:
+          maxLength: 100
+          minLength: 1
+          title: Request Id
+          type: string
+        class:
+          enum:
+          - E1
+          - E2
+          - E3
+          - E4
+          title: Class
+          type: string
+        summary:
+          maxLength: 1000
+          minLength: 1
+          title: Summary
+          type: string
+      required:
+      - profile_id
+      - request_id
+      - class
+      - summary
+      title: TicketPreview
+      type: object
+    TicketConfirm:
+      additionalProperties: false
+      properties:
+        profile_id:
+          maxLength: 80
+          minLength: 1
+          title: Profile Id
+          type: string
+        card_id:
+          format: uuid
+          title: Card Id
+          type: string
+        confirmation:
+          maxLength: 128
+          minLength: 1
+          title: Confirmation
+          type: string
+      required:
+      - profile_id
+      - card_id
+      - confirmation
+      title: TicketConfirm
+      type: object
+    Error:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+      additionalProperties: false
+    FormResult:
+      type: object
+      required:
+      - status
+      - route
+      - answer
+      - fields
+      - missing_fields
+      - invalid_fields
+      - citations
+      properties:
+        status:
+          enum:
+          - clarify
+          - draft_ready
+          - submitted
+          - cancelled
+          - refuse
+          - temporary_error
+        route:
+          enum:
+          - temp_pass
+          - enrollment_certificate
+          - rag_answer
+        answer:
+          type: string
+        fields:
+          type: object
+          additionalProperties:
+            anyOf:
+            - type: string
+            - type: integer
+        missing_fields:
+          type: array
+          items:
+            type: string
+        invalid_fields:
+          type: array
+          items:
+            type: string
+        citations:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        field_sources:
+          type: object
+          additionalProperties:
+            enum:
+            - profile
+            - default
+            - user
+        draft_id:
+          type: string
+          format: uuid
+        revision:
+          type: integer
+          minimum: 1
+        number:
+          type: string
+          format: uuid
+        confirmation:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    StaffCard:
+      type: object
+      required:
+      - status
+      - card_id
+      - class
+      - summary
+      - confirmation
+      - expires_at
+      properties:
+        status:
+          const: confirmation_required
+        card_id:
+          type: string
+          format: uuid
+        class:
+          enum:
+          - E1
+          - E2
+          - E3
+          - E4
+        summary:
+          type: string
+        confirmation:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+      additionalProperties: false
+    Ticket:
+      type: object
+      required:
+      - status
+      - ticket_id
+      properties:
+        status:
+          const: queued_in_sandbox
+        ticket_id:
+          type: string
+          format: uuid
+      additionalProperties: false

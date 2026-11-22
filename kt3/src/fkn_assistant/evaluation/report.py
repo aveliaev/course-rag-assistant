@@ -61,8 +61,17 @@ def human_review(run, grade_path):
     outcomes = Counter()
     for marks in grades.values():
         outcomes[verdict(marks)] += 1
+    kinds = {
+        json.loads(line).get("reviewer_kind", "human")
+        for line in grade_path.read_text().splitlines()
+        if line.strip()
+    }
+    source = {
+        frozenset({"ai"}): "По рубрике ИИ-разметчиком проверено",
+        frozenset({"human"}): "Вручную проверено",
+    }.get(frozenset(kinds), "По рубрике проверено")
     return (
-        f"Вручную проверено {len(grades)}/{len(cases)} ответов первого повтора. "
+        f"{source} {len(grades)}/{len(cases)} ответов первого повтора. "
         f"Выполнили применимые условия {outcomes['pass']}, не выполнили {outcomes['fail']}, "
         f"не удалось проверить {outcomes['not_verifiable']}."
     )
@@ -106,10 +115,70 @@ def agreement(run, repo, first, second):
     }
 
 
+def compare(run, other):
+    def first_pass(path):
+        settings = json.loads((path / "run.json").read_text())["settings"]
+        rows = [
+            json.loads(file.read_text())
+            for file in (path / "responses").glob("*-1.json")
+        ]
+        keyed = {r["case_id"]: r for r in rows}
+        if len(rows) != len(keyed) or set(keyed) != set(settings["case_ids"]):
+            raise ValueError(f"Нужен полный первый повтор: {path}")
+        return settings, keyed
+
+    left, answers_left = first_pass(run)
+    right, answers_right = first_pass(other)
+    for key in (
+        "dataset",
+        "dataset_sha256",
+        "profiles_sha256",
+        "case_ids",
+        "latency_scope",
+    ):
+        if left[key] != right[key]:
+            raise ValueError(f"Прогоны несопоставимы по {key}")
+    if left.get("index") != right.get("index"):
+        raise ValueError("Прогоны используют разные индексы.")
+    if (left.get("retrieval_calibration") or {}).get("threshold") != (
+        right.get("retrieval_calibration") or {}
+    ).get("threshold"):
+        raise ValueError("Прогоны используют разные пороги поиска.")
+    scores = {}
+    for metric in (
+        "status_ok",
+        "route_ok",
+        "gold_hit_5",
+        "gold_hit_20",
+        "cited_gold_document",
+        "action_ok",
+    ):
+        pairs = [
+            (r["checks"].get(metric), answers_right[case]["checks"].get(metric))
+            for case, r in answers_left.items()
+        ]
+        comparable = [(a, b) for a, b in pairs if a is not None and b is not None]
+        scores[metric] = {
+            "total": len(comparable),
+            "left": sum(a for a, _ in comparable),
+            "right": sum(b for _, b in comparable),
+            "improved": sum(not a and b for a, b in comparable),
+            "regressed": sum(a and not b for a, b in comparable),
+        }
+    return {
+        "dataset": left["dataset"],
+        "repetition": 1,
+        "case_count": len(answers_left),
+        "left": left["variant"],
+        "right": right["variant"],
+        "metrics": scores,
+    }
+
+
 def render(run, grade_path):
     settings = json.loads((run / "run.json").read_text())["settings"]
     s = json.loads((run / "summary.json").read_text())
-    if settings["variant"] == "rag-b0":
+    if settings["variant"] in ("rag-b0", "rag-b1", "search-only"):
         from fkn_assistant.evaluation.report_rag import render as render_rag
 
         return render_rag(run, grade_path)
@@ -280,10 +349,13 @@ def main():
     options.add_argument("--grades", type=Path)
     options.add_argument("--review", action="store_true")
     options.add_argument("--agreement", nargs=2, type=Path, metavar=("FIRST", "SECOND"))
+    options.add_argument("--compare", type=Path, metavar="OTHER_RUN")
     parser.add_argument("--repo", type=Path, default=REPO)
     args = parser.parse_args()
     if args.review:
         print(render_review(args.run, args.repo))
+    elif args.compare:
+        print(json.dumps(compare(args.run, args.compare), indent=2, ensure_ascii=False))
     elif args.agreement:
         print(
             json.dumps(

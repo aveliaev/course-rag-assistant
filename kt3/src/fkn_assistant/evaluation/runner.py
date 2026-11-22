@@ -209,18 +209,29 @@ def summarize(path, rows, planned, active_sec, manual_count):
     if rows and "trace" in rows[0]:
         for field in ("gold_hit_5", "gold_hit_20", "cited_gold_document"):
             summary[field] = metric(rows, field)
-        summary["http_responses"] = sum(bool(r["model"]) for r in rows)
-        summary["api_models"] = dict(Counter(r["model"] for r in rows if r["model"]))
+        versions = [
+            name
+            for r in rows
+            for name in (
+                (r["trace"].get("plan") or {}).get("model"),
+                r["trace"].get("answer_model", r["model"]),
+            )
+            if name
+        ]
+        summary["http_responses"] = len(versions)
+        summary["api_models"] = dict(Counter(versions))
         summary["generation_calls"] = sum(r["trace"]["calls"] for r in rows)
         summary["fallback_count"] = sum(bool(r["trace"].get("fallback")) for r in rows)
+
+        def over_budget(usage, max_input, max_output):
+            return (usage.get("prompt_tokens") or 0) + (
+                usage.get("precached_prompt_tokens") or 0
+            ) > max_input or (usage.get("completion_tokens") or 0) > max_output
+
         summary["budget_violations"] = sum(
-            (
-                r["usage"].get("prompt_tokens", 0)
-                + r["usage"].get("precached_prompt_tokens", 0)
-                > 2900
-                or r["usage"].get("completion_tokens", 0) > 250
-                or r["trace"]["calls"] > 1
-            )
+            over_budget(r["trace"].get("answer_usage", r["usage"]), 2900, 250)
+            or over_budget(r["trace"].get("plan", {}).get("usage", {}), 1400, 120)
+            or r["trace"]["calls"] > (2 if "plan" in r["trace"] else 1)
             for r in rows
         )
         summary["deadline_exceeded"] = sum(r["latency_sec"] > 15 for r in rows)
@@ -309,10 +320,32 @@ def run(args):
         "manual_review_ids": [c["id"] for c in review],
         "double_review_ids": [c["id"] for c in double_review],
     }
-    if args.variant == "rag-b0":
+    if args.variant in ("rag-b0", "rag-b1", "search-only"):
         from fkn_assistant.evaluation.rag_eval import settings as rag_settings
 
         settings.update(rag_settings(args.repo))
+        if args.variant == "search-only":
+            settings.update(
+                prompt=None,
+                request_options=None,
+                schema=None,
+                endpoint=None,
+                seed_note="Детерминированный поиск и цитата без генерации",
+                billing_basis="Нет обращения к API генерации. Локальные ресурсы отдельно.",
+            )
+        elif args.variant == "rag-b1":
+            from fkn_assistant.planner import (
+                INPUT_LIMIT,
+                OPTIONS as PLAN_OPTIONS,
+                PROMPT as PLAN_PROMPT,
+            )
+
+            settings.update(
+                max_steps=7,
+                plan_prompt=PLAN_PROMPT,
+                plan_request_options=PLAN_OPTIONS,
+                plan_input_tokens_max=INPUT_LIMIT,
+            )
     args.output.mkdir(parents=True, exist_ok=True)
     with (args.output / ".lock").open("a") as lock:
         try:
@@ -352,16 +385,26 @@ def execute(args, jobs, profiles, review, settings):
         else 0
     )
     review_path = output / "review.json"
-    client = GigaChat(args.env, args.ca) if len(completed) < len(jobs) else None
+    pending = any((case["id"], repeat) not in completed for case, repeat in jobs)
+    client = (
+        GigaChat(args.env, args.ca)
+        if pending and args.variant != "search-only"
+        else None
+    )
     rag = None
-    if args.variant == "rag-b0" and client:
+    if pending and args.variant in ("rag-b0", "rag-b1", "search-only"):
         from fkn_assistant.rag import Rag, Search
 
-        rag = Rag(
-            Search(args.repo),
-            client,
-            threshold=settings["retrieval_calibration"]["threshold"],
-        )
+        search = Search(args.repo)
+        threshold = settings["retrieval_calibration"]["threshold"]
+        if args.variant == "search-only":
+            from fkn_assistant.search_only import SearchOnly
+
+            rag = SearchOnly(search, threshold)
+        else:
+            rag = Rag(
+                search, client, threshold=threshold, planning=args.variant == "rag-b1"
+            )
     timer = time.perf_counter()
     try:
         for case, repeat in jobs:
@@ -474,10 +517,12 @@ def execute(args, jobs, profiles, review, settings):
             )
 
 
-def main():
-    parser = argparse.ArgumentParser(description="КТ3 — измерение baseline на dev.")
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="КТ3 — сравнение конфигураций на dev.")
     parser.add_argument(
-        "--variant", choices=["prompt-only", "rag-b0"], default="prompt-only"
+        "--variant",
+        choices=["prompt-only", "rag-b0", "rag-b1", "search-only"],
+        default="prompt-only",
     )
     parser.add_argument(
         "--dataset", choices=["smoke", "dev", "dialogues", "calibrate"], default="dev"
@@ -489,7 +534,7 @@ def main():
     parser.add_argument(
         "--ca", type=Path, default=RESOURCES / "russian_trusted_root_ca_pem.crt"
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     if args.repeats < 1:
         parser.error("--repeats должен быть положительным.")
     try:

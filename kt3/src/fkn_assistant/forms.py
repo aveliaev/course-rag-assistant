@@ -249,6 +249,7 @@ class Sandbox:
         schedule_down=False,
         fail_submit=False,
         deadline=None,
+        interpretation=None,
     ):
         owner = str(profile["id"])
         if key[2] != owner or not profile.get("is_synthetic"):
@@ -290,7 +291,7 @@ class Sandbox:
                 ).fetchone()
             if button:
                 return self.button(key, row, now, button, fail_submit, deadline)
-            route = route_for(text)
+            route = route_for(text) if interpretation is None else interpretation.route
             if (
                 row
                 and row[4] in ("clarify", "draft_ready")
@@ -328,7 +329,12 @@ class Sandbox:
             for k, v in defaults.items():
                 if k not in fields:
                     fields[k], sources[k] = v, "default"
-            for k, v in extract(route, text, now).items():
+            fields_from_text = (
+                extract(route, text, now)
+                if interpretation is None or route != interpretation.route
+                else interpretation.fields
+            )
+            for k, v in fields_from_text.items():
                 fields[k], sources[k] = v, "user"
             missing = [k for k in rules["user_fields"] if k not in fields]
             invalid = []

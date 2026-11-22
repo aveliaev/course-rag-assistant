@@ -183,16 +183,26 @@ class Steps:
 
 
 class Rag:
-    def __init__(self, search, client: ModelClient | None, sandbox=None, threshold=0.5):
+    def __init__(
+        self,
+        search,
+        client: ModelClient | None,
+        sandbox=None,
+        threshold=0.5,
+        planning=False,
+    ):
         self.search = search
         self.client = client
         self.sandbox = sandbox or Sandbox()
         self.threshold = threshold
+        self.planning = planning
 
-    def turn(self, space, session, profile, text, now, button=None, limit=6, fail=None):
+    def turn(
+        self, space, session, profile, text, now, button=None, limit=None, fail=None
+    ):
         start = time.monotonic()
         deadline = Deadline(15)
-        steps = Steps(limit)
+        steps = Steps(limit if limit is not None else (7 if self.planning else 6))
         trace = {
             "steps": steps.log,
             "retrieved": [],
@@ -220,6 +230,15 @@ class Rag:
                 return result(
                     "refuse", "rag_answer", "Некорректный запрос или профиль."
                 ), trace
+            form_args = {}
+            if self.planning and not button and text.strip():
+                from fkn_assistant.planner import interpret
+
+                steps.take("plan")
+                trace["plan"] = {"calls": 0}
+                form_args["interpretation"] = interpret(
+                    self.client, text, clock, deadline, trace["plan"]
+                )
             steps.take("forms")
             form = self.sandbox.handle(
                 key,
@@ -230,6 +249,7 @@ class Rag:
                 fail == "schedule",
                 fail == "submit",
                 deadline=deadline,
+                **form_args,
             )
             if form is not None:
                 return form, trace
@@ -328,6 +348,16 @@ class Rag:
                 else "Сервис временно недоступен. Не удалось проверить результат.",
             ), trace
         finally:
+            if plan := trace.get("plan"):
+                trace["calls"] += plan["calls"]
+                plan_usage = plan.get("usage", {})
+                trace["answer_model"] = trace["model"]
+                trace["answer_usage"] = trace["usage"]
+                trace["usage"] = {
+                    k: (trace["answer_usage"].get(k) or 0) + (plan_usage.get(k) or 0)
+                    for k in trace["answer_usage"].keys() | plan_usage.keys()
+                }
+                trace["model"] = trace["model"] or plan.get("model")
             trace["latency_sec"] = round(time.monotonic() - start, 4)
 
     def generate(self, text, profile, now, history, hits, steps, trace, deadline):

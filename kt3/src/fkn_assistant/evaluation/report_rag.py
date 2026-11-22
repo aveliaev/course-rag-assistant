@@ -30,8 +30,14 @@ def render(run, grade_path):
         json.loads(p.read_text()) for p in sorted((run / "responses").glob("*.json"))
     ]
     first = [r for r in rows if r["repeat"] == 1]
+    search_only = settings["variant"] == "search-only"
+    title = {
+        "search-only": "Поиск и правила без генерации",
+        "rag-b0": "RAG-бейзлайн B0",
+        "rag-b1": "RAG-система B1 с разбором намерения",
+    }[settings["variant"]]
     lines = [
-        "# §8.1. RAG-бейзлайн B0",
+        f"# §8.1. {title}",
         "",
         f"Релиз {settings['dataset_release']}. Набор {settings['dataset']}. "
         f"Сохранено {s['attempted']}/{s['planned']} ходов, {len(first)} разных кейсов. "
@@ -46,7 +52,7 @@ def render(run, grade_path):
             ", ".join(f"{m} ({n})" for m, n in s["api_models"].items())
             or "нет генераций",
         ),
-        ("Промпт", "[rag_prompt.txt](rag_prompt.txt)"),
+        ("Промпты", "н/п" if search_only else "Точные тексты в run.json"),
         ("Формат ответа приложения", proportion(s["valid_format"])),
         ("Совпадение ожидаемого статуса", proportion(s["status_ok"])),
         ("Допустимый маршрут", proportion(s["route_ok"])),
@@ -62,7 +68,10 @@ def render(run, grade_path):
             f"{s['usage']['prompt_tokens']} / {s['usage']['completion_tokens']}",
         ),
         ("Токены кэшированного входа сверх тарифицируемых", s["input_cached_tokens"]),
-        ("Фактические расходы на запрос", "0 ₽ при Freemium и локальных сервисах"),
+        (
+            "Фактические расходы API на ход",
+            "0 ₽, API генерации не вызывается" if search_only else "0 ₽ при Freemium",
+        ),
         ("Превышения бюджета генерации", s["budget_violations"]),
         ("Ходы дольше 15 с", s.get("deadline_exceeded", "н/п")),
         (
@@ -97,7 +106,10 @@ def render(run, grade_path):
             "Оценка относится к локальной версии правил песочницы, описанной в form_rules.json. "
             "Совпадение первого хода формы включает источники полей, подтверждение, ссылки на правила и журнал.",
             "",
-            "Стоимость API в этом прогоне составляет 0 ₽ в пределах квоты Freemium. "
+            "Использован тот же поиск, порог и правила форм. Для информационного ответа "
+            "возвращается выдержка с локатором первого фрагмента. Локальные затраты не измерены."
+            if search_only
+            else "Стоимость API в этом прогоне составляет 0 ₽ в пределах квоты Freemium. "
             "Для платной модели стоимость хода рассчитывается по среднему числу тарифицируемых входных "
             "и выходных токенов и ставкам выбранной модели. У Ultra нет публичной платной ставки. "
             "Указанная стоимость не включает инфраструктуру и труд.",
