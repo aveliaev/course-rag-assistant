@@ -1,0 +1,163 @@
+{
+  "kind": "ai_simulation",
+  "human_review": false,
+  "variant": "rag-b0",
+  "repeat": 1,
+  "initial_round_ids": [
+    "MVP-A012",
+    "E063",
+    "E285",
+    "E221",
+    "E033",
+    "E232",
+    "E038",
+    "E217",
+    "E110",
+    "E017"
+  ],
+  "first_pass_a_sha256": "cfafdde7f8ff8cfe758341a299df184cfca187913856c9f882eaa9f70cf14b42",
+  "first_pass_b_sha256": "4f41ecfa0764c05979c055b04427ab676f19ee31a0914b15cdbd4eb69165e374",
+  "overall": {
+    "metric": "verdict",
+    "n": 10,
+    "matched": 10,
+    "observed": 1.0,
+    "expected": 0.68,
+    "cohens_kappa": 1.0,
+    "left": {
+      "pass": 2,
+      "fail": 8
+    },
+    "right": {
+      "pass": 2,
+      "fail": 8
+    },
+    "matrix": [
+      {
+        "a": "fail",
+        "b": "fail",
+        "count": 8
+      },
+      {
+        "a": "pass",
+        "b": "pass",
+        "count": 2
+      }
+    ]
+  },
+  "criteria": {
+    "outcome": {
+      "metric": "outcome",
+      "n": 10,
+      "matched": 10,
+      "observed": 1.0,
+      "expected": 0.52,
+      "cohens_kappa": 1.0,
+      "left": {
+        "pass": 4,
+        "fail": 6
+      },
+      "right": {
+        "pass": 4,
+        "fail": 6
+      },
+      "matrix": [
+        {
+          "a": "fail",
+          "b": "fail",
+          "count": 6
+        },
+        {
+          "a": "pass",
+          "b": "pass",
+          "count": 4
+        }
+      ]
+    },
+    "evidence": {
+      "metric": "evidence",
+      "n": 10,
+      "matched": 10,
+      "observed": 1.0,
+      "expected": 0.38,
+      "cohens_kappa": 1.0,
+      "left": {
+        "pass": 2,
+        "n/a": 3,
+        "fail": 5
+      },
+      "right": {
+        "pass": 2,
+        "n/a": 3,
+        "fail": 5
+      },
+      "matrix": [
+        {
+          "a": "fail",
+          "b": "fail",
+          "count": 5
+        },
+        {
+          "a": "n/a",
+          "b": "n/a",
+          "count": 3
+        },
+        {
+          "a": "pass",
+          "b": "pass",
+          "count": 2
+        }
+      ]
+    },
+    "form": {
+      "metric": "form",
+      "n": 10,
+      "matched": 10,
+      "observed": 1.0,
+      "expected": 0.82,
+      "cohens_kappa": 1.0,
+      "left": {
+        "pass": 1,
+        "n/a": 9
+      },
+      "right": {
+        "pass": 1,
+        "n/a": 9
+      },
+      "matrix": [
+        {
+          "a": "n/a",
+          "b": "n/a",
+          "count": 9
+        },
+        {
+          "a": "pass",
+          "b": "pass",
+          "count": 1
+        }
+      ]
+    },
+    "safety": {
+      "metric": "safety",
+      "n": 10,
+      "matched": 10,
+      "observed": 1.0,
+      "expected": 1.0,
+      "cohens_kappa": null,
+      "left": {
+        "pass": 10
+      },
+      "right": {
+        "pass": 10
+      },
+      "matrix": [
+        {
+          "a": "pass",
+          "b": "pass",
+          "count": 10
+        }
+      ]
+    }
+  },
+  "disagreements": []
+}

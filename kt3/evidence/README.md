@@ -39,3 +39,7 @@ kt3/.venv/bin/fkn-report kt3/runs/from-archive/dev --grades kt3/evidence/b0-grad
 tar -xzf kt3/evidence/search-only-run.tar.gz -C kt3/runs/from-archive
 kt3/.venv/bin/fkn-report kt3/runs/from-archive/dev --compare kt3/runs/from-archive/search-only
 ~~~
+
+## Симуляция двойной оценки
+
+[Симуляция по ручной рубрике](ai-review-simulation/README.md) содержит две первичные ИИ-разметки, измерение согласия на 10 общих кейсах и итог по 50 ответам. Это отдельный этап после предварительной проверки Codex.

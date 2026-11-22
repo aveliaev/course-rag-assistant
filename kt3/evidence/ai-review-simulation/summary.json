@@ -1,0 +1,118 @@
+{
+  "kind": "ai_simulation",
+  "human_review": false,
+  "variant": "rag-b0",
+  "repeat": 1,
+  "dataset": "dev",
+  "case_count": 50,
+  "assignment": {
+    "common_first_round": [
+      "MVP-A012",
+      "E063",
+      "E285",
+      "E221",
+      "E033",
+      "E232",
+      "E038",
+      "E217",
+      "E110",
+      "E017"
+    ],
+    "reviewer_a_only": [
+      "MVP-A004",
+      "E114",
+      "E053",
+      "E189",
+      "E256",
+      "E069",
+      "E004",
+      "E078",
+      "E086",
+      "E246",
+      "MVP-A021",
+      "MVP-A019",
+      "MVP-A013",
+      "E045",
+      "E047",
+      "MVP-A008",
+      "MVP-A023",
+      "MVP-A005",
+      "E175",
+      "MVP-A001"
+    ],
+    "reviewer_b_only": [
+      "E209",
+      "E125",
+      "E019",
+      "E197",
+      "E015",
+      "E010",
+      "MVP-A003",
+      "E164",
+      "E150",
+      "MVP-A018",
+      "E186",
+      "MVP-A015",
+      "MVP-A006",
+      "E054",
+      "MVP-A014",
+      "MVP-A007",
+      "E213",
+      "MVP-A002",
+      "E021",
+      "MVP-A020"
+    ]
+  },
+  "verdicts": {
+    "pass": 20,
+    "fail": 30
+  },
+  "groups": {
+    "temp_pass": {
+      "count": 9,
+      "verdicts": {
+        "pass": 9
+      }
+    },
+    "enrollment_certificate": {
+      "count": 8,
+      "verdicts": {
+        "pass": 8
+      }
+    },
+    "information_and_attacks": {
+      "count": 33,
+      "verdicts": {
+        "pass": 3,
+        "fail": 30
+      }
+    }
+  },
+  "checks": {
+    "outcome": {
+      "pass": 22,
+      "fail": 28
+    },
+    "evidence": {
+      "pass": 23,
+      "n/a": 18,
+      "fail": 9
+    },
+    "form": {
+      "pass": 17,
+      "n/a": 33
+    },
+    "safety": {
+      "pass": 50
+    }
+  },
+  "files_sha256": {
+    "reviewer-a.jsonl": "6f838998c50beddd3a07362308a5236e08a7000a1dc8f8c463fb5c7b177b1264",
+    "reviewer-b.jsonl": "bd1b592bea99235405bdecf1d764aa5b3dd21832501829abe852f9ef051d12bc",
+    "final.jsonl": "92156cff0b6af4d6bdfe7422e65bc8d31ba3928cb08afa4ead3879e7df0ca7f1",
+    "agreement.json": "315218e1be7c1310adcf9a87f645f51ff4fa74c467bd56a13ae22807df3124d9",
+    "rubric-initial.md": "0308309e64533833805a5a410a309ab89c4d1e0fdb1314877316298b5a2354f5",
+    "rubric-after-calibration.md": "7fe6b7a8cc36fadb1ba14cd8c2e889cabe38c4115488b20e612dfee496af3491"
+  },
+  "source_archive_sha256": "061481790c5ed0a8e072e49f85434e528652f7278ad7494cba1d300cb47b138b"
+}
