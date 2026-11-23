@@ -31,13 +31,15 @@ def render(run, grade_path):
     ]
     first = [r for r in rows if r["repeat"] == 1]
     search_only = settings["variant"] == "search-only"
+    reference_only = settings["variant"] == "rag-b0-reference"
     title = {
         "search-only": "Поиск и правила без генерации",
         "rag-b0": "RAG-бейзлайн B0",
+        "rag-b0-reference": "Справочный RAG B0",
         "rag-b1": "RAG-система B1 с разбором намерения",
     }[settings["variant"]]
     lines = [
-        f"# §8.1. {title}",
+        f"# {'§8.3' if reference_only else '§8.1'}. {title}",
         "",
         f"Релиз {settings['dataset_release']}. Набор {settings['dataset']}. "
         f"Сохранено {s['attempted']}/{s['planned']} ходов, {len(first)} разных кейсов. "
@@ -75,7 +77,7 @@ def render(run, grade_path):
         ("Превышения бюджета генерации", s["budget_violations"]),
         ("Ходы дольше 15 с", s.get("deadline_exceeded", "н/п")),
         (
-            "Проверки действий по журналу",
+            "Проверки отсутствия действий" if reference_only else "Проверки действий по журналу",
             proportion(s["action_ok"]) if "action_ok" in s else "н/п",
         ),
         (
@@ -85,26 +87,34 @@ def render(run, grade_path):
     ]
     for label, value in values:
         lines.append(f"| {label} | {value} |")
-    lines.extend(
-        [
+    if reference_only:
+        lines.extend([
+            "",
+            "Справочный режим использует исходный вопрос, гибридный поиск и до одного вызова GigaChat. "
+            "Черновики и заявки недоступны. Тесты полей форм неприменимы. "
+            "Статус и маршрут сверяются с исходным эталоном, в котором часть кейсов ожидает действие.",
+        ])
+    else:
+        lines.extend([
             "",
             "| Форма | Кейсов | Полное совпадение первого хода, все повторы | Верные поля |",
             "|---|---:|---:|---:|",
-        ]
-    )
-    for key, label in (
-        ("temp_pass", "Временный пропуск"),
-        ("enrollment_certificate", "Справка об обучении"),
-    ):
-        form = s["forms"][key]
-        lines.append(
-            f"| {label} | {form['cases']} | {proportion(form['form_ok'])} | {proportion(form['fields'])} |"
-        )
-    lines.extend(
-        [
+        ])
+        for key, label in (
+            ("temp_pass", "Временный пропуск"),
+            ("enrollment_certificate", "Справка об обучении"),
+        ):
+            form = s["forms"][key]
+            lines.append(
+                f"| {label} | {form['cases']} | {proportion(form['form_ok'])} | {proportion(form['fields'])} |"
+            )
+        lines.extend([
             "",
             "Оценка относится к локальной версии правил песочницы, описанной в form_rules.json. "
             "Совпадение первого хода формы включает источники полей, подтверждение, ссылки на правила и журнал.",
+        ])
+    lines.extend(
+        [
             "",
             "Использован тот же поиск, порог и правила форм. Для информационного ответа "
             "возвращается выдержка с локатором первого фрагмента. Локальные затраты не измерены."
@@ -136,7 +146,9 @@ def render(run, grade_path):
             f"Цель по задержке P95 ≤ 15 с: {'достигнута' if s['p95_sec'] is not None and s['p95_sec'] <= 15 else 'не достигнута'}. "
             "Вывод по целям полного успеха 85% и смысловой корректности цитирования 95% требует разметки ответов.",
             "",
-            "E2E измеряется при уже загруженном индексе и включает обращения к Postgres, поиск, "
+            "E2E измеряется при уже загруженном индексе и включает поиск, подсчёт токенов и получение полного ответа."
+            if reference_only
+            else "E2E измеряется при уже загруженном индексе и включает обращения к Postgres, поиск, "
             "подсчёт токенов и получение полного ответа. Ошибки инфраструктуры перечислены отдельно.",
         ]
     )

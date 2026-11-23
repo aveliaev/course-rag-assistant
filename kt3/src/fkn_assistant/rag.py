@@ -190,10 +190,11 @@ class Rag:
         sandbox=None,
         threshold=0.5,
         planning=False,
+        reference_only=False,
     ):
         self.search = search
         self.client = client
-        self.sandbox = sandbox or Sandbox()
+        self.sandbox = None if reference_only else (sandbox or Sandbox())
         self.threshold = threshold
         self.planning = planning
 
@@ -202,7 +203,12 @@ class Rag:
     ):
         start = time.monotonic()
         deadline = Deadline(15)
-        steps = Steps(limit if limit is not None else (7 if self.planning else 6))
+        default_limit = 6
+        if self.sandbox is None:
+            default_limit = 4
+        elif self.planning:
+            default_limit = 7
+        steps = Steps(limit if limit is not None else default_limit)
         trace = {
             "steps": steps.log,
             "retrieved": [],
@@ -230,31 +236,38 @@ class Rag:
                 return result(
                     "refuse", "rag_answer", "Некорректный запрос или профиль."
                 ), trace
-            form_args = {}
-            if self.planning and not button and text.strip():
-                from fkn_assistant.planner import interpret
+            history = []
+            if self.sandbox is None:
+                if button is not None:
+                    return result(
+                        "refuse", "rag_answer", "Действие недоступно в справочном режиме."
+                    ), trace
+            else:
+                form_args = {}
+                if self.planning and not button and text.strip():
+                    from fkn_assistant.planner import interpret
 
-                steps.take("plan")
-                trace["plan"] = {"calls": 0}
-                form_args["interpretation"] = interpret(
-                    self.client, text, clock, deadline, trace["plan"]
+                    steps.take("plan")
+                    trace["plan"] = {"calls": 0}
+                    form_args["interpretation"] = interpret(
+                        self.client, text, clock, deadline, trace["plan"]
+                    )
+                steps.take("forms")
+                form = self.sandbox.handle(
+                    key,
+                    profile,
+                    clock,
+                    text,
+                    button,
+                    fail == "schedule",
+                    fail == "submit",
+                    deadline=deadline,
+                    **form_args,
                 )
-            steps.take("forms")
-            form = self.sandbox.handle(
-                key,
-                profile,
-                clock,
-                text,
-                button,
-                fail == "schedule",
-                fail == "submit",
-                deadline=deadline,
-                **form_args,
-            )
-            if form is not None:
-                return form, trace
-            steps.take("history")
-            history = self.sandbox.history(key, clock, deadline=deadline)
+                if form is not None:
+                    return form, trace
+                steps.take("history")
+                history = self.sandbox.history(key, clock, deadline=deadline)
             followup = bool(
                 history
                 and (
@@ -300,9 +313,10 @@ class Rag:
                 response = self.generate(
                     text, profile, now, history, hits[:5], steps, trace, deadline
                 )
-            self.sandbox.remember(
-                key, clock, text, response["answer"], deadline=deadline
-            )
+            if self.sandbox is not None:
+                self.sandbox.remember(
+                    key, clock, text, response["answer"], deadline=deadline
+                )
             return response, trace
         except Exhausted as exc:
             trace["error"] = {"stage": "budget", "code": str(exc) or "step_limit"}

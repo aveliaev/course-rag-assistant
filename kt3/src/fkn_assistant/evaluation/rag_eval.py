@@ -102,13 +102,17 @@ def attempt(app, case, profile, repeat, space):
     )
     good_status = answer["status"] in statuses
     good_route = (answer["route"] in routes) if routes else None
-    gold_fields = gold.get("request_fields") or {}
+    reference_only = app.sandbox is None
+    gold_fields = {} if reference_only else gold.get("request_fields") or {}
     fields = answer["fields"]
     matching = sum(
         k in fields and type(fields[k]) is type(v) and fields[k] == v
         for k, v in gold_fields.items()
     )
-    evidence = app.sandbox.evidence((space, session, str(profile["id"])))
+    if reference_only:
+        evidence = {"events": [], "applications": [], "sandbox_enabled": False}
+    else:
+        evidence = app.sandbox.evidence((space, session, str(profile["id"])))
     journal = evidence["events"]
     # Only a ready card counts as a created draft in KT2. A clarify card stores working fields.
     observed_actions = {
@@ -123,19 +127,27 @@ def attempt(app, case, profile, repeat, space):
         ),
     }
     # These channels have no senders in the local sandbox. An application must also have a durable row.
-    action_ok = (
-        all(
-            observed_actions[k] == value
-            for k, value in gold.get("tool_assertions", {}).items()
+    if reference_only:
+        action_ok = (
+            answer["route"] == "rag_answer"
+            and not fields
+            and not has_confirmation
+            and "forms" not in trace["steps"]
         )
-        and not evidence["applications"]
-    )
+    else:
+        action_ok = (
+            all(
+                observed_actions[k] == value
+                for k, value in gold.get("tool_assertions", {}).items()
+            )
+            and not evidence["applications"]
+        )
     form_ok = None
     retrieved = trace["retrieved"]
     sources = {h["citation_id"] for h in trace["context"]}
     valid_cites = all(h["citation_id"] in sources for h in answer["citations"])
     field_sources_ok = confirmation_ok = rule_ok = None
-    if gold.get("request_type") in FORM_CONTEXT:
+    if not reference_only and gold.get("request_type") in FORM_CONTEXT:
         field_sources_ok = answer.get("field_sources", {}) == (
             gold.get("field_sources") or {}
         )

@@ -30,6 +30,7 @@ MODEL_FIELDS = {
     "rag_answer": set(),
 }
 STATUSES = {"answer", "answer_partial", "clarify", "draft_ready", "refuse"}
+RAG_VARIANTS = ("rag-b0", "rag-b1", "search-only", "rag-b0-reference")
 
 
 def messages_for(case, profile, prompt):
@@ -323,7 +324,7 @@ def run(args):
         "manual_review_ids": [c["id"] for c in review],
         "double_review_ids": [c["id"] for c in double_review],
     }
-    if args.variant in ("rag-b0", "rag-b1", "search-only"):
+    if args.variant in RAG_VARIANTS:
         from fkn_assistant.evaluation.rag_eval import settings as rag_settings
 
         settings.update(rag_settings(args.repo))
@@ -347,6 +348,8 @@ def run(args):
                 seed_note="Детерминированный поиск и цитата без генерации",
                 billing_basis="Нет обращения к API генерации. Локальные ресурсы отдельно.",
             )
+        elif args.variant == "rag-b0-reference":
+            settings.update(rules=None, max_steps=4, history_enabled=False)
         elif args.variant == "rag-b1":
             from fkn_assistant.planner import (
                 INPUT_LIMIT,
@@ -406,7 +409,7 @@ def execute(args, jobs, profiles, review, settings):
         else None
     )
     rag = None
-    if pending and args.variant in ("rag-b0", "rag-b1", "search-only"):
+    if pending and args.variant in RAG_VARIANTS:
         from fkn_assistant.rag import Rag, Search
 
         search = Search(args.repo)
@@ -417,7 +420,11 @@ def execute(args, jobs, profiles, review, settings):
             rag = SearchOnly(search, threshold)
         else:
             rag = Rag(
-                search, client, threshold=threshold, planning=args.variant == "rag-b1"
+                search,
+                client,
+                threshold=threshold,
+                planning=args.variant == "rag-b1",
+                reference_only=args.variant == "rag-b0-reference",
             )
     timer = time.perf_counter()
     try:
@@ -543,7 +550,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="КТ3 — сравнение конфигураций на dev.")
     parser.add_argument(
         "--variant",
-        choices=["prompt-only", "rag-b0", "rag-b1", "search-only"],
+        choices=["prompt-only", *RAG_VARIANTS],
         default="prompt-only",
     )
     parser.add_argument(

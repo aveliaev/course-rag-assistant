@@ -178,7 +178,7 @@ def compare(run, other):
 def render(run, grade_path):
     settings = json.loads((run / "run.json").read_text())["settings"]
     s = json.loads((run / "summary.json").read_text())
-    if settings["variant"] in ("rag-b0", "rag-b1", "search-only"):
+    if settings["variant"] in ("rag-b0", "rag-b1", "search-only", "rag-b0-reference"):
         from fkn_assistant.evaluation.report_rag import render as render_rag
 
         return render_rag(run, grade_path)
